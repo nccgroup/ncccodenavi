@@ -3,7 +3,7 @@
 == FEATURES ==
 - FEATURE: Tabbed browsing - Dan M
 - FEATURE: Show file in explorer (right-click in search results) - Dan M
-- FEATURE: Double-click or press enter on filename in file browser now opens it in a sepeate code viewer window
+- FEATURE: Double-click or press enter on filename in file browser now opens it in a separate code viewer window
 - FEATURE: Code editor window: right-click to send the full path to notes. - Dan M
 - FEATURE: Prompt user if you click the x or close and you have windows open - Dan M
 - FEATURE: Automatic saving of notes (off by default) - Dan M
@@ -13,8 +13,8 @@
 - FEATURE: Version checking
 
 == BUG FIXES ==
-- BUG FIX: Overselections on lines in notes now dont throw an exception when doing right-click - Richard T
-- BUG FIX: Sorted out the notes pain so it is such a terrible user exerpience when scroll bars are about
+- BUG FIX: Overs elections on lines in notes now don't throw an exception when doing right-click - Richard T
+- BUG FIX: Sorted out the notes pain so it is such a terrible user experience when scroll bars are about
 - BUG FIX: Make clear what the export function needs and why - Dan M
 
 = TO-DO LIST =
