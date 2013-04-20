@@ -1,0 +1,7 @@
+C# control that allow to attach line numbers to rich text box.
+
+/*
+ * (C) 2011 Anton Pototsky
+ * Based on VB.NET project by nogChoco: http://www.codeproject.com/KB/cpp/linenumbers_for_rtb.aspx
+ * Licensed under The Code Project Open License (CPOL): http://www.codeproject.com/info/cpol10.aspx
+ */
