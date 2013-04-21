@@ -193,10 +193,18 @@ namespace Win.CodeNavi
             }
 
             this.Scintilla.Text = File.ReadAllText(strFilePath);
-            this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath);
+
+            try
+            {
+                this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+            }
+            catch (Exception)
+            {
+
+            }
+
             this.IniLexer = false;
-            this.Scintilla.ConfigurationManager.Language = "cs";
-            this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
             this.Scintilla.UndoRedo.EmptyUndoBuffer();
             this.Scintilla.Modified = false;
             this.FilePath = strFilePath;
@@ -269,7 +277,7 @@ namespace Win.CodeNavi
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //
+            System.Windows.Forms.Clipboard.SetText(this.Scintilla.Selection.Text);
         }
 
         private void cmdSearch_Click(object sender, EventArgs e)
