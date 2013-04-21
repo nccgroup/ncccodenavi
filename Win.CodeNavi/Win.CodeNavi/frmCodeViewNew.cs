@@ -106,9 +106,14 @@ namespace Win.CodeNavi
 
             try
             {
+
+                //myRichTextBox.GoTo.Position(intLine;
                 if (lineToGo > 1 && intNineLinesPast != -1)
                 {
-                    myRichTextBox.CurrentPos = intLine;
+                    //myRichTextBox.GoTo.Position(intLine);
+                    myRichTextBox.GoTo.Position(intNineLinesPast);
+                    //myRichTextBox.Markers.AddInstanceSet(intLine, 0);
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
                     //.myRichTextBox.
                     //myRichTextBox.Select(intNineLinesPast + 1, 0);
                     //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
@@ -116,15 +121,21 @@ namespace Win.CodeNavi
                 else if (lineToGo > 1 && intTwoLinesPast != -1)
                 {
                     //myRichTextBox.Select(intTwoLinesPast + 1, 0);
+                    myRichTextBox.GoTo.Position(intTwoLinesPast);
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
                     //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
                 }
                 else if (lineToGo > 1 && intLine != -1)
                 {
                     //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
+                    myRichTextBox.GoTo.Position(intLine);
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
                 }
                 else
                 {
                     //myRichTextBox.Select(intLine, 0);
+                    myRichTextBox.GoTo.Position(intLine);
+                    //myRichTextBox.Lines[lineToGo-1].AddMarker(99);
                 }
             }
             catch (Exception)
