@@ -80,7 +80,14 @@ namespace Win.CodeNavi
             }
             else
             {
-                richTwitter.AppendText(strNews + Environment.NewLine + Environment.NewLine);
+                try
+                {
+                    richTwitter.AppendText(strNews + Environment.NewLine + Environment.NewLine);
+                }
+                catch (Exception)
+                {
+
+                }
             } 
         }
 

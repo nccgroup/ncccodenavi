@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrowser));
+            this.scintilla = new ScintillaNET.Scintilla();
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.cmdFind = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -37,16 +38,29 @@
             this.treeFiles = new System.Windows.Forms.TreeView();
             this.ctxFile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmdOpeninCodeView = new System.Windows.Forms.ToolStripMenuItem();
-            this.richText = new System.Windows.Forms.RichTextBox();
-            this.lineNumbersForRichText = new LineNumbersControlForRichTextBox.LineNumbersForRichText();
             this.cmdShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdSendFilenameAndPathToNotes = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
             this.splitMain.Panel1.SuspendLayout();
             this.splitMain.Panel2.SuspendLayout();
             this.splitMain.SuspendLayout();
             this.ctxFile.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // scintilla
+            // 
+            this.scintilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scintilla.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
+            this.scintilla.Size = new System.Drawing.Size(707, 432);
+            this.scintilla.Location = new System.Drawing.Point(57, 12);
+            this.scintilla.Margins.Margin1.AutoToggleMarkerNumber = 0;
+            this.scintilla.Margins.Margin1.IsClickable = true;
+            this.scintilla.Margins.Margin2.Width = 16;
+            this.scintilla.Name = "_scintilla";
+            this.scintilla.TabIndex = 3;
             // 
             // splitMain
             // 
@@ -64,8 +78,7 @@
             // 
             // splitMain.Panel2
             // 
-            this.splitMain.Panel2.Controls.Add(this.richText);
-            this.splitMain.Panel2.Controls.Add(this.lineNumbersForRichText);
+            this.splitMain.Panel2.Controls.Add(this.scintilla);
             this.splitMain.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitMain_Panel2_Paint);
             this.splitMain.Size = new System.Drawing.Size(1031, 458);
             this.splitMain.SplitterDistance = 249;
@@ -138,60 +151,6 @@
             this.cmdOpeninCodeView.Text = "&Open in code view";
             this.cmdOpeninCodeView.Click += new System.EventHandler(this.cmdOpeninCodeView_Click);
             // 
-            // richText
-            // 
-            this.richText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richText.BackColor = System.Drawing.SystemColors.Window;
-            this.richText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richText.HideSelection = false;
-            this.richText.Location = new System.Drawing.Point(57, 12);
-            this.richText.Name = "richText";
-            this.richText.ReadOnly = true;
-            this.richText.Size = new System.Drawing.Size(707, 432);
-            this.richText.TabIndex = 3;
-            this.richText.Text = "";
-            this.richText.WordWrap = false;
-            this.richText.TextChanged += new System.EventHandler(this.richText_TextChanged);
-            // 
-            // lineNumbersForRichText
-            // 
-            this.lineNumbersForRichText.AutoSizing = true;
-            this.lineNumbersForRichText.BackgroundGradientAlphaColor = System.Drawing.Color.Transparent;
-            this.lineNumbersForRichText.BackgroundGradientBetaColor = System.Drawing.Color.LightSteelBlue;
-            this.lineNumbersForRichText.BackgroundGradientDirection = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.lineNumbersForRichText.BorderLinesColor = System.Drawing.Color.SlateGray;
-            this.lineNumbersForRichText.BorderLinesStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lineNumbersForRichText.BorderLinesThickness = 1F;
-            this.lineNumbersForRichText.DockSide = LineNumbersControlForRichTextBox.LineNumbersForRichText.LineNumberDockSide.Left;
-            this.lineNumbersForRichText.GridLinesColor = System.Drawing.Color.SlateGray;
-            this.lineNumbersForRichText.GridLinesStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lineNumbersForRichText.GridLinesThickness = 1F;
-            this.lineNumbersForRichText.LineNumbersAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.lineNumbersForRichText.LineNumbersAntiAlias = true;
-            this.lineNumbersForRichText.LineNumbersAsHexadecimal = false;
-            this.lineNumbersForRichText.LineNumbersClippedByItemRectangle = true;
-            this.lineNumbersForRichText.LineNumbersLeadingZeroes = true;
-            this.lineNumbersForRichText.LineNumbersOffset = new System.Drawing.Size(0, 0);
-            this.lineNumbersForRichText.Location = new System.Drawing.Point(36, 12);
-            this.lineNumbersForRichText.Margin = new System.Windows.Forms.Padding(0);
-            this.lineNumbersForRichText.MarginLinesColor = System.Drawing.Color.SlateGray;
-            this.lineNumbersForRichText.MarginLinesSide = LineNumbersControlForRichTextBox.LineNumbersForRichText.LineNumberDockSide.Right;
-            this.lineNumbersForRichText.MarginLinesStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbersForRichText.MarginLinesThickness = 1F;
-            this.lineNumbersForRichText.Name = "lineNumbersForRichText";
-            this.lineNumbersForRichText.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.lineNumbersForRichText.ParentRichTextBox = this.richText;
-            this.lineNumbersForRichText.SeeThroughMode = false;
-            this.lineNumbersForRichText.ShowBackgroundGradient = true;
-            this.lineNumbersForRichText.ShowBorderLines = true;
-            this.lineNumbersForRichText.ShowGridLines = true;
-            this.lineNumbersForRichText.ShowLineNumbers = true;
-            this.lineNumbersForRichText.ShowMarginLines = true;
-            this.lineNumbersForRichText.Size = new System.Drawing.Size(20, 432);
-            this.lineNumbersForRichText.TabIndex = 4;
-            // 
             // cmdShowInExplorer
             // 
             this.cmdShowInExplorer.Name = "cmdShowInExplorer";
@@ -222,6 +181,7 @@
             this.splitMain.Panel1.ResumeLayout(false);
             this.splitMain.Panel1.PerformLayout();
             this.splitMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
             this.ctxFile.ResumeLayout(false);
@@ -233,8 +193,6 @@
 
         private System.Windows.Forms.SplitContainer splitMain;
         private System.Windows.Forms.TreeView treeFiles;
-        private System.Windows.Forms.RichTextBox richText;
-        private LineNumbersControlForRichTextBox.LineNumbersForRichText lineNumbersForRichText;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblFind;
         private System.Windows.Forms.Button cmdFind;
@@ -242,6 +200,6 @@
         private System.Windows.Forms.ToolStripMenuItem cmdOpeninCodeView;
         private System.Windows.Forms.ToolStripMenuItem cmdShowInExplorer;
         private System.Windows.Forms.ToolStripMenuItem cmdSendFilenameAndPathToNotes;
-
+        private ScintillaNET.Scintilla scintilla;
     }
 }

@@ -31,7 +31,9 @@ namespace Win.CodeNavi
         private bool bNotesPending = false;
         private string[] profileLines = null;
         public SourceCodeMarkUp scmMine = new SourceCodeMarkUp(AssemblyDirectory);
-   
+        private Thread workerThreadV = null;
+        private Thread workerThread = null;
+
         static public string AssemblyDirectory
         {
             get
@@ -278,10 +280,10 @@ namespace Win.CodeNavi
 
             Twitter twTemp = new Twitter();
             twTemp.SetRT(this.richNCCNews,this.tabNCCNews);
-            Thread workerThread = new Thread(new ThreadStart(twTemp.Get)) ;
+            workerThread = new Thread(new ThreadStart(twTemp.Get));
 
             VersionCheck vCheck = new VersionCheck();
-            Thread workerThreadV = new Thread(new ThreadStart(vCheck.Get));
+            workerThreadV = new Thread(new ThreadStart(vCheck.Get));
 
             // Start the worker thread.
             workerThread.Start();
@@ -803,6 +805,14 @@ namespace Win.CodeNavi
 
                     }
                 }
+            }
+
+            if(workerThread.IsAlive){
+                workerThread.Abort();
+            }
+            if (workerThreadV.IsAlive)
+            {
+                workerThreadV.Abort();
             }
         }
 

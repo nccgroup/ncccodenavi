@@ -33,7 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCodeViewNew));
             this.ctxCodeView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.scintilla = new ScintillaNET.Scintilla();
-            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,13 +43,13 @@
             this.cmdSearch = new System.Windows.Forms.ToolStripButton();
             this.cmdGoogle = new System.Windows.Forms.ToolStripButton();
             this.cmdCERT = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
             this.ctxCodeView.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // _scintilla
+            // scintilla
             // 
-            //this.scintilla.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));

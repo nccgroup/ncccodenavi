@@ -59,7 +59,7 @@ namespace Win.CodeNavi
         private void richText_TextChanged(object sender, EventArgs e)
         {
             if (strCurrFile == null || File.Exists(strCurrFile) == false) return;
-            if (richText.Text.Length < 10240)
+            if (this.scintilla.Text.Length < 10240)
             {
                 try
                 {
@@ -74,6 +74,8 @@ namespace Win.CodeNavi
             //richText.`
         }
 
+        private const int LINE_NUMBERS_MARGIN_WIDTH = 35; // TODO Don't hardcode this
+
         private void frmBrowser_Load(object sender, EventArgs e)
         {
             KeyPreview = true;
@@ -81,6 +83,11 @@ namespace Win.CodeNavi
             //SetStyle(ControlStyles.UserPaint, true);
             //SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
+            this.scintilla.UndoRedo.EmptyUndoBuffer();
+            //this.scintilla.Modified = false;
+            this.scintilla.IsReadOnly = true;
+            this.scintilla.Modified = false;
+            this.scintilla.Margins.Margin0.Width = LINE_NUMBERS_MARGIN_WIDTH;
             this.Select();
         }
 
@@ -148,6 +155,7 @@ namespace Win.CodeNavi
                 treeNodeTmp = treeNodeTmp.Parent;
                 sbTemp.Insert(0, treeNodeTmp.Text + "\\");
             }
+            this.scintilla.IsReadOnly = false;
 
             if (File.Exists(sbTemp.ToString()) == true)
             {
@@ -167,27 +175,34 @@ namespace Win.CodeNavi
 
                 if (IsTextTester.IsText(out encodingForFile,sbTemp.ToString(),100) == true && fileBytes != null)
                 {
-                    richText.Text = File.ReadAllText(sbTemp.ToString(),encodingForFile);
-                    richText.Invalidate();
+                    this.scintilla.Text = File.ReadAllText(sbTemp.ToString(), encodingForFile);
+                    try
+                    {
+                        this.scintilla.ConfigurationManager.Language = Path.GetExtension(sbTemp.ToString()).Substring(1);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                 }
                 else if (IsTextTester.IsText(out encodingForFile, sbTemp.ToString(), 100) == false && fileBytes != null)
                 {
-                    richText.Text = sbTemp.ToString() + " is binary and can't be displayed";
+                    this.scintilla.Text = sbTemp.ToString() + " is binary and can't be displayed";
                 }
                 else if (fileBytes == null)
                 {
-                    richText.Text = sbTemp.ToString() + " could not be opened";
+                    this.scintilla.Text = sbTemp.ToString() + " could not be opened";
                 }
             }
             else if(Directory.Exists(sbTemp.ToString()))
             {
-                richText.Text = sbTemp.ToString() + " is a directory";
+                this.scintilla.Text = sbTemp.ToString() + " is a directory";
             }
             else 
             {
-                richText.Text = sbTemp.ToString() + " is unknown";
+                this.scintilla.Text = sbTemp.ToString() + " is unknown";
             }
-
+            this.scintilla.IsReadOnly = true;
         }
 
         // http://stackoverflow.com/questions/840899/how-can-i-programmatically-click-a-treeview-treenode-so-it-appears-highlighted-i
@@ -305,11 +320,11 @@ namespace Win.CodeNavi
                 }
                 else if (IsTextTester.IsText(out encodingForFile, sbTemp.ToString(), 100) == false && fileBytes != null)
                 {
-                    richText.Text = sbTemp.ToString() + " is binary and can't be displayed";
+                    this.scintilla.Text = sbTemp.ToString() + " is binary and can't be displayed";
                 }
                 else if (fileBytes == null)
                 {
-                    richText.Text = sbTemp.ToString() + " could not be opened";
+                    this.scintilla.Text = sbTemp.ToString() + " could not be opened";
                 }
             }
             
