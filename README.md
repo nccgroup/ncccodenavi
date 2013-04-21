@@ -11,6 +11,9 @@ http://www.github.com/nccgroup/ncccodenavi
 
 Released under AGPL see LICENSE for more information
 
+[Documentation]<br>
+https://github.com/nccgroup/ncccodenavi/wiki/Getting-Started
+
 [Binary Download]<br>
 * https://mega.co.nz/#!YhEVCSwK!OKOt0yhETx3bsaP8SW7br1yIhKYPOFgK-kUBmHzdK84 - mega.co.nz<br>
 * http://www.fileswap.com/dl/xxPzPixvMG/ - fileswap.com
