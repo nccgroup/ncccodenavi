@@ -28,7 +28,6 @@ namespace Win.CodeNavi
         private string strFilePath = null;
         private int intLine = 0;
         private frmMain frmMaster = null;
-        bool bHighlighting = false;
         private bool _iniLexer;
         private string _filePath;
 
@@ -182,7 +181,6 @@ namespace Win.CodeNavi
                 return;
             }
 
-            Console.WriteLine("loading..");
             this.Scintilla.Text = File.ReadAllText(strFilePath);
             this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath);
             this.IniLexer = false;
@@ -194,7 +192,8 @@ namespace Win.CodeNavi
             this.Scintilla.IsReadOnly = true;
             this.Scintilla.Modified = false;
             this.Scintilla.Margins.Margin0.Width = LINE_NUMBERS_MARGIN_WIDTH;
-            //Goto(Scintilla, intLine);
+
+            Goto(Scintilla, intLine);
           
             this.Select();
         }
@@ -293,14 +292,6 @@ namespace Win.CodeNavi
              */
         }
 
-
-        bool changed = false;
-
-        private void richText_SelectionChanged(object sender, EventArgs e)
-        {
-            changed = true;
-            
-        }
 
         private void cmdSendFileNamePathToNotes_Click(object sender, EventArgs e)
         {

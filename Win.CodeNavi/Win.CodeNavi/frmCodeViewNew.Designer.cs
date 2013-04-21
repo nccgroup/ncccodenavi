@@ -55,8 +55,8 @@
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scintilla.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
-            this.scintilla.Size = new System.Drawing.Size(836, 325);
-            this.scintilla.Location = new System.Drawing.Point(29, 47);
+            this.scintilla.Size = new System.Drawing.Size(892, 330);
+            this.scintilla.Location = new System.Drawing.Point(3, 47);
             this.scintilla.Margins.Margin1.AutoToggleMarkerNumber = 0;
             this.scintilla.Margins.Margin1.IsClickable = true;
             this.scintilla.Margins.Margin2.Width = 16;

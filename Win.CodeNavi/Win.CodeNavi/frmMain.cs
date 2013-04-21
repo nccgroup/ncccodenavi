@@ -1316,7 +1316,7 @@ namespace Win.CodeNavi
                     Match regexMatch = Regex.Match("Mooo", strLine);
                     lblExRegexCompile.Text = "Regex compiled OK";
                 }
-                catch (ArgumentException rExcp)
+                catch (ArgumentException)
                 {
                     lblExRegexCompile.Text = "Regex compiliation failed on line " + intCount;
                 }
