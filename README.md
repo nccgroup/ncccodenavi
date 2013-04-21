@@ -26,3 +26,6 @@ Released under AGPL see LICENSE for more information
 * Select a word or phrase in the code reviewer press enter and it'll automatically search for that across all code<br>
 * Select a word or phrase (e.g. API) right-click and launch Google or CERT secure coding searches<br>
 * Grepify profile support<br>
+
+[Screen Shot]
+![ScreenShot](https://raw.github.com/nccgroup/ncccodenavi/master/Win.CodeNavi/Screenshots/NCCCodeNavi.png)
