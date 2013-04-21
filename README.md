@@ -11,8 +11,12 @@ http://www.github.com/nccgroup/ncccodenavi
 
 Released under AGPL see LICENSE for more information
 
-[Download]<br>
-https://mega.co.nz/#!YhEVCSwK!OKOt0yhETx3bsaP8SW7br1yIhKYPOFgK-kUBmHzdK84
+[Binary Download]<br>
+* https://mega.co.nz/#!YhEVCSwK!OKOt0yhETx3bsaP8SW7br1yIhKYPOFgK-kUBmHzdK84 - mega.co.nz<br>
+* http://www.fileswap.com/dl/xxPzPixvMG/ - fileswap.com
+
+[Platforms]
+* Windows Vista or higher with .NET 4.0 client runtime
 
 [Features]<br>
 * Easily search across code<br>
