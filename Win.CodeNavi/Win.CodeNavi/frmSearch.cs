@@ -175,7 +175,7 @@ namespace Win.CodeNavi
             for (int intCount = 0; intCount < lstResults.SelectedItems.Count; intCount++)
             {
                 // Now initalize a search form
-                frmCodeView frmSearch = new frmCodeView(lstResults.SelectedItems[intCount].SubItems[0].Text + "\\" + lstResults.SelectedItems[intCount].SubItems[1].Text, Convert.ToInt32(lstResults.SelectedItems[intCount].SubItems[3].Text),frmMaster);
+                frmCodeViewNew frmSearch = new frmCodeViewNew(lstResults.SelectedItems[intCount].SubItems[0].Text + "\\" + lstResults.SelectedItems[intCount].SubItems[1].Text, Convert.ToInt32(lstResults.SelectedItems[intCount].SubItems[3].Text),frmMaster);
                 frmSearch.MdiParent = this.MdiParent;
                 frmSearch.Visible = true;
             }

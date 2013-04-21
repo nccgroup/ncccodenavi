@@ -299,7 +299,7 @@ namespace Win.CodeNavi
                 if (IsTextTester.IsText(out encodingForFile, sbTemp.ToString(), 1000) == true && fileBytes != null)
                 {
                     // Now initalize a search form
-                    frmCodeView frmSearch = new frmCodeView(sbTemp.ToString(), 0 , frmMaster);
+                    frmCodeViewNew frmSearch = new frmCodeViewNew(sbTemp.ToString(), 0 , frmMaster);
                     frmSearch.MdiParent = this.MdiParent;
                     frmSearch.Visible = true;
                 }

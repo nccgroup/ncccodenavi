@@ -239,7 +239,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richText;
         private System.Windows.Forms.ContextMenuStrip ctxCodeView;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
@@ -252,5 +251,6 @@
         private System.Windows.Forms.ToolStripButton cmdGoogle;
         private System.Windows.Forms.ToolStripButton cmdCERT;
         private System.Windows.Forms.ToolStripMenuItem cmdSendFileNamePathToNotes;
+        public System.Windows.Forms.RichTextBox richText;
     }
 }

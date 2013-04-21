@@ -11,7 +11,8 @@
     <RootNamespace>Win.CodeNavi</RootNamespace>
     <AssemblyName>Win.CodeNavi</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -40,6 +41,9 @@
     <Reference Include="LineNumbersControlForRichTextBox">
       <HintPath>..\3rd-Party\LineNumbers\Src\LineNumbersControlForRichTextBox\bin\Release\LineNumbersControlForRichTextBox.dll</HintPath>
     </Reference>
+    <Reference Include="ScintillaNET">
+      <HintPath>..\3rd-Party\ScintillaNET v2.5.2 Source\bin\Release\ScintillaNET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCodeViewNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCodeViewNew.Designer.cs">
+      <DependentUpon>frmCodeViewNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrawingControl.cs" />
     <Compile Include="frmBrowser.cs">
       <SubType>Form</SubType>
@@ -83,6 +93,7 @@
     <Compile Include="frmSearch.Designer.cs">
       <DependentUpon>frmSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="IniLexer.cs" />
     <Compile Include="IsText.cs" />
     <Compile Include="ListViewAntiFlicker.cs" />
     <Compile Include="ListViewColumnSorter.cs" />
@@ -95,12 +106,16 @@
     <Compile Include="Twitter.cs" />
     <Compile Include="VersionCheck.cs" />
     <Compile Include="Win32.cs" />
+    <EmbeddedResource Include="frmCodeViewNew.resx">
+      <DependentUpon>frmCodeViewNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBrowser.resx">
       <DependentUpon>frmBrowser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCodeView.resx">
       <DependentUpon>frmCodeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -133,8 +148,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CHANGELOG.txt" />
     <Content Include="eye.ico" />
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\book.ico" />
     <None Include="Resources\check_mark.png" />
     <None Include="Resources\blank_page.png" />
     <None Include="Resources\edit_page.png" />

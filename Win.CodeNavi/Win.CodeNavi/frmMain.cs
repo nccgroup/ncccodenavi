@@ -22,6 +22,7 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading;
+using ScintillaNET;
 
 namespace Win.CodeNavi
 {
@@ -719,7 +720,7 @@ namespace Win.CodeNavi
         {
             if (richNotes.SelectedText.Length > 0)
             {
-                Clipboard.SetText(richNotes.SelectedText);
+                System.Windows.Forms.Clipboard.SetText(richNotes.SelectedText);
                 UpdateNotesStatus("Copied to clipboard");
             }
             else if(richNotes.Text != null)
@@ -728,7 +729,7 @@ namespace Win.CodeNavi
                 {
                     try
                     {
-                        Clipboard.SetText(richNotes.Text);
+                        System.Windows.Forms.Clipboard.SetText(richNotes.Text);
                         UpdateNotesStatus("Copied to clipboard");
                     }
                     catch (Exception)
@@ -933,7 +934,7 @@ namespace Win.CodeNavi
                 }
             }
 
-            frmCodeView frmSearch = new frmCodeView(strFile, intLine, this);
+            frmCodeViewNew frmSearch = new frmCodeViewNew(strFile, intLine, this);
             frmSearch.MdiParent = this;
             frmSearch.Visible = true;
         }
@@ -1335,6 +1336,16 @@ namespace Win.CodeNavi
             {
                 lblExRegexCompile.Text = "Failed to sve exclusions";
             }
+        }
+
+        
+
+        private void cmdExperiment_Click(object sender, EventArgs e)
+        {
+            frmCodeView frmFoo = new frmCodeView();
+            frmCodeViewNew docForm = new frmCodeViewNew("C:\\Data\\NCC\\!Code\\Git.Public\\ncccodenavi\\Win.CodeNavi\\Win.CodeNavi\\Scanner.cs", 0, this);
+            docForm.MdiParent = this;
+            docForm.Show();
         }
 
     }

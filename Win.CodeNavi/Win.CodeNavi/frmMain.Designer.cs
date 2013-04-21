@@ -60,6 +60,7 @@
             this.toolWindows = new System.Windows.Forms.ToolStripDropDownButton();
             this.cmdWinTile = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdWinCascade = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmdExperiment = new System.Windows.Forms.ToolStripLabel();
             this.tabNotes = new System.Windows.Forms.TabControl();
             this.tabNotesPage = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -126,11 +127,12 @@
             this.cmdGrepifyScan,
             this.optGrepify,
             this.toolStripSeparator6,
-            this.toolWindows});
+            this.toolWindows,
+            this.cmdExperiment});
             this.toolTop.Location = new System.Drawing.Point(0, 0);
             this.toolTop.Name = "toolTop";
             this.toolTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolTop.Size = new System.Drawing.Size(1311, 39);
+            this.toolTop.Size = new System.Drawing.Size(1390, 39);
             this.toolTop.TabIndex = 0;
             this.toolTop.TabStop = true;
             this.toolTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolTop_KeyPress);
@@ -387,6 +389,13 @@
             this.cmdWinCascade.ToolTipText = "Cascade windows";
             this.cmdWinCascade.Click += new System.EventHandler(this.cmdWinCascade_Click);
             // 
+            // cmdExperiment
+            // 
+            this.cmdExperiment.Name = "cmdExperiment";
+            this.cmdExperiment.Size = new System.Drawing.Size(66, 36);
+            this.cmdExperiment.Text = "Experiment";
+            this.cmdExperiment.Click += new System.EventHandler(this.cmdExperiment_Click);
+            // 
             // tabNotes
             // 
             this.tabNotes.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -394,7 +403,7 @@
             this.tabNotes.Controls.Add(this.tabNCCNews);
             this.tabNotes.Controls.Add(this.tabExclusions);
             this.tabNotes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabNotes.Location = new System.Drawing.Point(877, 39);
+            this.tabNotes.Location = new System.Drawing.Point(956, 39);
             this.tabNotes.Name = "tabNotes";
             this.tabNotes.SelectedIndex = 0;
             this.tabNotes.Size = new System.Drawing.Size(434, 460);
@@ -689,7 +698,7 @@
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
             this.tabForms.ShowToolTips = true;
-            this.tabForms.Size = new System.Drawing.Size(877, 26);
+            this.tabForms.Size = new System.Drawing.Size(956, 26);
             this.tabForms.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabForms.TabIndex = 5;
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
@@ -708,7 +717,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1311, 499);
+            this.ClientSize = new System.Drawing.Size(1390, 499);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.tabNotes);
             this.Controls.Add(this.toolTop);
@@ -810,6 +819,7 @@
         private System.Windows.Forms.ToolStrip toolExcl;
         private System.Windows.Forms.ToolStripButton cmdExlSave;
         private System.Windows.Forms.RichTextBox richExclusions;
+        private System.Windows.Forms.ToolStripLabel cmdExperiment;
     }
 }
 

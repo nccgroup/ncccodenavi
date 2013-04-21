@@ -89,6 +89,11 @@ namespace Win.CodeNavi
         }
 
 
+        public frmCodeView()
+        {
+            InitializeComponent(); 
+        }
+
         public frmCodeView(String strFile,int intLine, frmMain frmMaster)
         {
             InitializeComponent();
