@@ -476,7 +476,7 @@ namespace SCide
             // Set the zoom
             doc.Scintilla.Zoom = _zoomLevel;
 
-            doc.Scintilla.IsReadOnly = true;
+            //doc.Scintilla.IsReadOnly = true;
         }
 
 

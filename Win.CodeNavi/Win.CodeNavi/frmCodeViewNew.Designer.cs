@@ -42,7 +42,6 @@ namespace Win.CodeNavi
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCodeViewNew));
             this.ctxCodeView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.scintilla = new ScintillaNET.Scintilla();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +52,11 @@ namespace Win.CodeNavi
             this.cmdSearch = new System.Windows.Forms.ToolStripButton();
             this.cmdGoogle = new System.Windows.Forms.ToolStripButton();
             this.cmdCERT = new System.Windows.Forms.ToolStripButton();
+            this.cmdBookmark = new System.Windows.Forms.ToolStripButton();
+            this.cmdPreviousBookMark = new System.Windows.Forms.ToolStripButton();
+            this.cmdNextBookmark = new System.Windows.Forms.ToolStripButton();
+            this.cmdDeleteBookmarks = new System.Windows.Forms.ToolStripButton();
+            this.scintilla = new ScintillaNET.Scintilla();
             ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
             this.ctxCodeView.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -128,7 +132,11 @@ namespace Win.CodeNavi
             this.cmdCopy,
             this.cmdSearch,
             this.cmdGoogle,
-            this.cmdCERT});
+            this.cmdCERT,
+            this.cmdBookmark,
+            this.cmdPreviousBookMark,
+            this.cmdNextBookmark,
+            this.cmdDeleteBookmarks});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(898, 39);
@@ -180,7 +188,51 @@ namespace Win.CodeNavi
             this.cmdCERT.Text = "Search selection on CERT secure coding";
             this.cmdCERT.Click += new System.EventHandler(this.cmdCERT_Click);
             // 
-            // frmCodeView
+            // cmdBookmark
+            // 
+            this.cmdBookmark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdBookmark.Image = ((System.Drawing.Image)(resources.GetObject("cmdBookmark.Image")));
+            this.cmdBookmark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdBookmark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdBookmark.Name = "cmdBookmark";
+            this.cmdBookmark.Size = new System.Drawing.Size(36, 36);
+            this.cmdBookmark.Text = "Toggle bookmark";
+            this.cmdBookmark.Click += new System.EventHandler(this.cmdBookmark_Click);
+            // 
+            // cmdPreviousBookMark
+            // 
+            this.cmdPreviousBookMark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdPreviousBookMark.Image = ((System.Drawing.Image)(resources.GetObject("cmdPreviousBookMark.Image")));
+            this.cmdPreviousBookMark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdPreviousBookMark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdPreviousBookMark.Name = "cmdPreviousBookMark";
+            this.cmdPreviousBookMark.Size = new System.Drawing.Size(36, 36);
+            this.cmdPreviousBookMark.Text = "Previous bookmark";
+            this.cmdPreviousBookMark.Click += new System.EventHandler(this.cmdPreviousBookMark_Click);
+            // 
+            // cmdNextBookmark
+            // 
+            this.cmdNextBookmark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdNextBookmark.Image = ((System.Drawing.Image)(resources.GetObject("cmdNextBookmark.Image")));
+            this.cmdNextBookmark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdNextBookmark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdNextBookmark.Name = "cmdNextBookmark";
+            this.cmdNextBookmark.Size = new System.Drawing.Size(36, 36);
+            this.cmdNextBookmark.Text = "Next bookmark";
+            this.cmdNextBookmark.Click += new System.EventHandler(this.cmdNextBookmark_Click);
+            // 
+            // cmdDeleteBookmarks
+            // 
+            this.cmdDeleteBookmarks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdDeleteBookmarks.Image = ((System.Drawing.Image)(resources.GetObject("cmdDeleteBookmarks.Image")));
+            this.cmdDeleteBookmarks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdDeleteBookmarks.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdDeleteBookmarks.Name = "cmdDeleteBookmarks";
+            this.cmdDeleteBookmarks.Size = new System.Drawing.Size(36, 36);
+            this.cmdDeleteBookmarks.Text = "Delete all bookmarks";
+            this.cmdDeleteBookmarks.Click += new System.EventHandler(this.cmdDeleteBookmarks_Click);
+            // 
+            // frmCodeViewNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,8 +251,8 @@ namespace Win.CodeNavi
             this.ctxCodeView.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scintilla)).EndInit();
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }
@@ -219,5 +271,9 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStripButton cmdCERT;
         private System.Windows.Forms.ToolStripMenuItem cmdSendFileNamePathToNotes;
         private ScintillaNET.Scintilla scintilla;
+        private System.Windows.Forms.ToolStripButton cmdBookmark;
+        private System.Windows.Forms.ToolStripButton cmdPreviousBookMark;
+        private System.Windows.Forms.ToolStripButton cmdNextBookmark;
+        private System.Windows.Forms.ToolStripButton cmdDeleteBookmarks;
     }
 }

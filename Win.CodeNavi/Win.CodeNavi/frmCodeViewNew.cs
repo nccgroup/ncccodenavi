@@ -106,35 +106,26 @@ namespace Win.CodeNavi
             try
             {
 
-                //myRichTextBox.GoTo.Position(intLine;
                 if (lineToGo > 1 && intNineLinesPast != -1)
                 {
-                    //myRichTextBox.GoTo.Position(intLine);
                     myRichTextBox.GoTo.Position(intNineLinesPast);
-                    //myRichTextBox.Markers.AddInstanceSet(intLine, 0);
-                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
-                    //.myRichTextBox.
-                    //myRichTextBox.Select(intNineLinesPast + 1, 0);
-                    //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(0);
+                    myRichTextBox.GoTo.Line(lineToGo-1);
                 }
                 else if (lineToGo > 1 && intTwoLinesPast != -1)
                 {
-                    //myRichTextBox.Select(intTwoLinesPast + 1, 0);
                     myRichTextBox.GoTo.Position(intTwoLinesPast);
-                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
-                    //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(0);
+                    myRichTextBox.GoTo.Line(lineToGo-1);
                 }
                 else if (lineToGo > 1 && intLine != -1)
                 {
-                    //myRichTextBox.Select(intLine + 1, text.IndexOf('\n', intLine + 1) - (intLine + 1));
                     myRichTextBox.GoTo.Position(intLine);
-                    myRichTextBox.Lines[lineToGo-1].AddMarker(99);
+                    myRichTextBox.Lines[lineToGo-1].AddMarker(0);
                 }
                 else
                 {
-                    //myRichTextBox.Select(intLine, 0);
                     myRichTextBox.GoTo.Position(intLine);
-                    //myRichTextBox.Lines[lineToGo-1].AddMarker(99);
                 }
             }
             catch (Exception)
@@ -328,6 +319,36 @@ namespace Win.CodeNavi
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void cmdBookmark_Click(object sender, EventArgs e)
+        {
+            Line currentLine = this.Scintilla.Lines.Current;
+            if (this.Scintilla.Markers.GetMarkerMask(currentLine) == 0)
+            {
+                currentLine.AddMarker(0);
+            }
+            else
+            {
+                currentLine.DeleteMarker(0);
+            }
+        }
+
+        private void cmdPreviousBookMark_Click(object sender, EventArgs e)
+        {
+            Line l = this.Scintilla.Lines.Current.FindPreviousMarker(1);
+            if (l != null) l.Goto();
+        }
+
+        private void cmdNextBookmark_Click(object sender, EventArgs e)
+        {
+            Line l = this.Scintilla.Lines.Current.FindNextMarker(1);
+            if (l != null) l.Goto();
+        }
+
+        private void cmdDeleteBookmarks_Click(object sender, EventArgs e)
+        {
+            this.Scintilla.Markers.DeleteAll(0);
         }
  
     }

@@ -1,0 +1,10 @@
+- Update the file / assembley version
+- Build binaries and package
+- Upload
+- Download and test
+- Update Readme.md in root of repo with URLs for current release
+- Commit
+- Vist and check links are working
+- Update Version.Check/Version.text to reflect the file / assembley version
+- Commit
+- Test that the new binaries aren't flagging a new version

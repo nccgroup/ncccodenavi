@@ -443,7 +443,6 @@ namespace Win.CodeNavi
             {
                 while (intQueue > 0)
                 {
-                    Console.WriteLine(intQueue.ToString());
                     Thread.Sleep(1000);
                 }
                 frmSearch.UpdateStatus("Search thread crashed");
