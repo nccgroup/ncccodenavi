@@ -160,7 +160,6 @@ namespace Win.CodeNavi
         static IntPtr PathToAbsolutePIDL(string path)
         {
             var desktopFolder = NativeMethods.SHGetDesktopFolder();
-            //Console.WriteLine("[i]" + path.ToString());
             return GetShellFolderChildrenRelativePIDL(desktopFolder, path);
         }
 
@@ -205,7 +204,6 @@ namespace Win.CodeNavi
             foreach (var path in paths)
             {
                 string fixedPath = path;
-                //Console.WriteLine("[!]" + path);
                 if (fixedPath.EndsWith(Path.DirectorySeparatorChar.ToString()) || fixedPath.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
                 {
                     fixedPath = fixedPath.Remove(fixedPath.Length - 1);

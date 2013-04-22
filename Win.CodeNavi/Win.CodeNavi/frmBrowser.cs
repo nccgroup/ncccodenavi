@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using ScintillaNET;
 
 namespace Win.CodeNavi
 {
@@ -70,8 +71,6 @@ namespace Win.CodeNavi
 
                 }
             }
-            //Console.WriteLine(Path.GetExtension(strCurrFile).Substring(1));}
-            //richText.`
         }
 
         private const int LINE_NUMBERS_MARGIN_WIDTH = 35; // TODO Don't hardcode this
@@ -179,6 +178,12 @@ namespace Win.CodeNavi
                     try
                     {
                         this.scintilla.ConfigurationManager.Language = Path.GetExtension(sbTemp.ToString()).Substring(1);
+                        if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("c"))
+                        {
+                            this.scintilla.ConfigurationManager.Language = "cpp";
+                            this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                        }
+                        if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("py")) this.scintilla.ConfigurationManager.Language = "python";
                     }
                     catch (Exception)
                     {
@@ -211,7 +216,6 @@ namespace Win.CodeNavi
         {
             foreach (TreeNode tn in treeNode.Nodes)
             {
-                //Console.WriteLine(treeNode.Text.ToLower());
                 if (tn.Text.ToLower().Equals(txtSearch.Text.ToLower()))
                 {
                     if (treeFiles.SelectedNode.Equals(tn) == false)

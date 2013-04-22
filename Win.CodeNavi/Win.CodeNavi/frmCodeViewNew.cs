@@ -53,7 +53,6 @@ namespace Win.CodeNavi
 
         private void scintilla_StyleNeeded(object sender, StyleNeededEventArgs e)
         {
-            Console.WriteLine("Style");
             // Style the _text
             if (_iniLexer)
                 Win.CodeNavi.IniLexer.StyleNeeded((Scintilla)sender, e.Range);
@@ -198,6 +197,11 @@ namespace Win.CodeNavi
             {
                 this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
                 if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) {
+                    this.Scintilla.ConfigurationManager.Language = "cpp";
+                    this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                }
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("py")) this.Scintilla.ConfigurationManager.Language = "python";
             }
             catch (Exception)
             {

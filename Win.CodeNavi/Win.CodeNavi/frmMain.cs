@@ -1173,7 +1173,6 @@ namespace Win.CodeNavi
             // create new tabPage 
             if (this.MdiChildren.Count() > 0)
             {
-                Console.WriteLine(this.MdiChildren.Count());
                 if (this.ActiveMdiChild != null && this.ActiveMdiChild.Tag == null)
                 {
                     // Add a tabPage to tabControl with child 
@@ -1209,7 +1208,6 @@ namespace Win.CodeNavi
         private void ActiveMdiChild_FormClosed(object sender,
                                     FormClosedEventArgs e)
         {
-            Console.WriteLine("hurro");
             ActivateMdiChild(null);
             ((sender as Form).Tag as TabPage).Parent = null;
             ((sender as Form).Tag as TabPage).Dispose();

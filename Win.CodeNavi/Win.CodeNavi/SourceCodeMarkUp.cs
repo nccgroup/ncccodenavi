@@ -103,7 +103,6 @@ namespace Win.CodeNavi
                                         foreach (string strKeyWord in strKeyWords)
                                         {
                                             cmuTemp.strKeyWords.Add(strKeyWord);
-                                            //Console.WriteLine(strKeyWord);
                                         }
                                     }
                                 }
@@ -200,9 +199,7 @@ namespace Win.CodeNavi
                             else sbTemp.Append("|" + strKeyword+"\\s");
                         }
                         sbTemp.Append(")");
-
-                        Console.WriteLine(sbTemp.ToString());
-                       
+                     
                         Regex rex = new Regex(sbTemp.ToString());
                         MatchCollection mcCollection = rex.Matches(richText.Text);
 

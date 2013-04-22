@@ -103,7 +103,6 @@ namespace Win.CodeNavi
                 clearNews();
                 foreach (string strMessage in message)
                 {
-                    //Console.WriteLine(strMessage);
                     updateNews(strMessage);
                     enableNews();
                 }

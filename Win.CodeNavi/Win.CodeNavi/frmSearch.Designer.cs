@@ -1,4 +1,14 @@
-﻿namespace Win.CodeNavi
+﻿/*
+Released as open source by NCC Group Plc - http://www.nccgroup.com/
+
+Developed by Ollie Whitehouse, ollie dot whitehouse at nccgroup dot com
+
+http://www.github.com/nccgroup/ncccodenavi
+
+Released under AGPL see LICENSE for more information
+*/
+
+namespace Win.CodeNavi
 {
     partial class frmSearch
     {

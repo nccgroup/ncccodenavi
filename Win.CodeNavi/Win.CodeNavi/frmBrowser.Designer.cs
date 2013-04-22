@@ -1,4 +1,14 @@
-﻿namespace Win.CodeNavi
+﻿/*
+Released as open source by NCC Group Plc - http://www.nccgroup.com/
+
+Developed by Ollie Whitehouse, ollie dot whitehouse at nccgroup dot com
+
+http://www.github.com/nccgroup/ncccodenavi
+
+Released under AGPL see LICENSE for more information
+*/
+
+namespace Win.CodeNavi
 {
     partial class frmBrowser
     {
@@ -54,13 +64,14 @@
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scintilla.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
-            this.scintilla.Size = new System.Drawing.Size(707, 432);
-            this.scintilla.Location = new System.Drawing.Point(57, 12);
+            this.scintilla.Size = new System.Drawing.Size(769, 432);
+            this.scintilla.Location = new System.Drawing.Point(3, 12);
             this.scintilla.Margins.Margin1.AutoToggleMarkerNumber = 0;
             this.scintilla.Margins.Margin1.IsClickable = true;
             this.scintilla.Margins.Margin2.Width = 16;
             this.scintilla.Name = "_scintilla";
             this.scintilla.TabIndex = 3;
+            this.scintilla.ConfigurationManager.Language = "text";
             // 
             // splitMain
             // 
