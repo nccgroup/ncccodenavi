@@ -112,7 +112,7 @@ namespace Win.CodeNavi
                                     {
 
                                         Match regexMatch = null;
-                                        if (bCase == true)
+                                        if (bCase == false)
                                         {
                                             regexMatch = Regex.Match(strLine, strRegex, RegexOptions.IgnoreCase);
                                         }
@@ -142,7 +142,7 @@ namespace Win.CodeNavi
                             else if (bRegex == true && strAPIs == null) // Standard term search but with regex
                             {
                                 Match regexMatch = null;
-                                if (bCase == true)
+                                if (bCase == false)
                                 {
                                     regexMatch = Regex.Match(strLine, strTerm, RegexOptions.IgnoreCase);
                                 }
@@ -321,7 +321,7 @@ namespace Win.CodeNavi
             }
             catch (Exception)
             {
-
+                if (bComments) MessageBox.Show("Failed to load comments regular expressons", "Failed to load", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

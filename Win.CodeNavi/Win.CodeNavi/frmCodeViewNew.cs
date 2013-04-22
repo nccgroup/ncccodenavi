@@ -193,6 +193,7 @@ namespace Win.CodeNavi
                     this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
                 }
                 if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("py")) this.Scintilla.ConfigurationManager.Language = "python";
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("rb")) this.Scintilla.ConfigurationManager.Language = "ruby";
             }
             catch (Exception)
             {

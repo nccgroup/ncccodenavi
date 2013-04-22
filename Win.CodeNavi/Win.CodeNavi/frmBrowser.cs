@@ -184,6 +184,9 @@ namespace Win.CodeNavi
                             this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
                         }
                         if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("py")) this.scintilla.ConfigurationManager.Language = "python";
+                        if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("rb")) this.scintilla.ConfigurationManager.Language = "ruby";
+                        //if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("php")) this.scintilla.ConfigurationManager.Language = "xml";
+                        //this.scintilla.ConfigurationManager.CustomLocation = 
                     }
                     catch (Exception)
                     {

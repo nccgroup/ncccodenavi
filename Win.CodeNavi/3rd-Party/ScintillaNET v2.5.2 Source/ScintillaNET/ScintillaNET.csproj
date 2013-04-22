@@ -508,6 +508,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Configuration\Builtin\cpp.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\Builtin\asp.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\bat.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\h.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\hy.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\pas.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\php.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\sql.xml" />
+    <EmbeddedResource Include="Configuration\Builtin\vb.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -74,21 +74,28 @@ namespace Win.CodeNavi
 
         void updateNews(string strNews)
         {
-            if (richTwitter.InvokeRequired)
+            try
             {
-                richTwitter.Invoke(new MethodInvoker(() => { updateNews(strNews); }));
-            }
-            else
-            {
-                try
+                if (richTwitter.InvokeRequired)
                 {
-                    richTwitter.AppendText(strNews + Environment.NewLine + Environment.NewLine);
+                    richTwitter.Invoke(new MethodInvoker(() => { updateNews(strNews); }));
                 }
-                catch (Exception)
+                else
                 {
+                    try
+                    {
+                        richTwitter.AppendText(strNews + Environment.NewLine + Environment.NewLine);
+                    }
+                    catch (Exception)
+                    {
 
+                    }
                 }
-            } 
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         void twitter_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)

@@ -340,5 +340,12 @@ namespace Win.CodeNavi
             if(scanEngine!=null)scanEngine.Stop();
         }
 
+        private void cmdGraphResults_Click(object sender, EventArgs e)
+        {
+            frmCharts thisChart = new frmCharts(this.lstResults);
+            thisChart.MdiParent = frmMaster;
+            thisChart.Show();
+        }
+
     }
 }

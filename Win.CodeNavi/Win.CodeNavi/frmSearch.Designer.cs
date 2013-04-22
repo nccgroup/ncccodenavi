@@ -53,13 +53,14 @@ namespace Win.CodeNavi
             this.cmdSendFilenameAndPathToNotes = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.cmdSearchOpen = new System.Windows.Forms.ToolStripButton();
             this.cmdSearchSend = new System.Windows.Forms.ToolStripButton();
             this.cmdSearchSendCodeLine = new System.Windows.Forms.ToolStripButton();
             this.cmdSearchSendFileandPath = new System.Windows.Forms.ToolStripButton();
             this.cmdSearchAlwaysOnTop = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cmdGraphResults = new System.Windows.Forms.ToolStripButton();
             this.ctxRightClick.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -122,7 +123,7 @@ namespace Win.CodeNavi
             this.cmdSendFilenameAndPathToNotes,
             this.cmdShowInExplorer});
             this.ctxRightClick.Name = "ctxRightClick";
-            this.ctxRightClick.Size = new System.Drawing.Size(250, 136);
+            this.ctxRightClick.Size = new System.Drawing.Size(250, 114);
             // 
             // openSelectedFilesToolStripMenuItem
             // 
@@ -167,13 +168,31 @@ namespace Win.CodeNavi
             this.cmdSearchSend,
             this.cmdSearchSendCodeLine,
             this.cmdSearchSendFileandPath,
-            this.cmdSearchAlwaysOnTop});
+            this.cmdSearchAlwaysOnTop,
+            this.cmdGraphResults});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(898, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 362);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(898, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(84, 17);
+            this.lblStatus.Text = "Search not run";
             // 
             // cmdSearchOpen
             // 
@@ -231,21 +250,16 @@ namespace Win.CodeNavi
             this.cmdSearchAlwaysOnTop.ToolTipText = "Always on top";
             this.cmdSearchAlwaysOnTop.Click += new System.EventHandler(this.cmdSearchAlwaysOnTop_Click);
             // 
-            // statusStrip1
+            // cmdGraphResults
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 362);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(898, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(84, 17);
-            this.lblStatus.Text = "Search not run";
+            this.cmdGraphResults.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdGraphResults.Image = ((System.Drawing.Image)(resources.GetObject("cmdGraphResults.Image")));
+            this.cmdGraphResults.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdGraphResults.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdGraphResults.Name = "cmdGraphResults";
+            this.cmdGraphResults.Size = new System.Drawing.Size(36, 36);
+            this.cmdGraphResults.Text = "Graph results";
+            this.cmdGraphResults.Click += new System.EventHandler(this.cmdGraphResults_Click);
             // 
             // frmSearch
             // 
@@ -296,5 +310,6 @@ namespace Win.CodeNavi
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripMenuItem cmdShowInExplorer;
+        private System.Windows.Forms.ToolStripButton cmdGraphResults;
     }
 }

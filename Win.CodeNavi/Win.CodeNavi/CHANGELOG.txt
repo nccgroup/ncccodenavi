@@ -1,5 +1,12 @@
 ﻿= Changes in 1.1 =
 
+== FEATURES ==
+- FEATURE: New code highlighting solution
+- FEATURE: Bookmarks in the code view
+- FEATURE: Charting of grepify results
+
+== BUG FIXES ==
+-
 
 = Changes in 1.0 =
 
