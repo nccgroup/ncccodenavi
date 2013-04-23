@@ -29,6 +29,7 @@ if %folder% == Release (
 	echo [*] Correct directory
 ) else (
 	echo [!] You need to be in the Release directory
+ 	goto :eof
 )
 
 md Package > nul 2> nul
@@ -50,3 +51,5 @@ md Notepad++.Profiles > nul 2> nul
 copy "..\..\Configuration\Notepad++.Profiles\*.*" ".\Notepad++.Profiles"
 
 cd ..
+
+:eof
