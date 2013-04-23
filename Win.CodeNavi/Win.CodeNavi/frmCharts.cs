@@ -37,6 +37,12 @@ namespace Win.CodeNavi
 
         private void frmCharts_Load(object sender, EventArgs e)
         {
+
+            foreach (SeriesChartType scType in Enum.GetValues(typeof(SeriesChartType)).Cast<SeriesChartType>())
+            {
+                chartCombo.Items.Add(scType.ToString());
+                chartCombo.SelectedIndex = 0;
+            }
             
             foreach(ListViewItem lstItem in this.lstResults.Items){
                 
@@ -99,6 +105,16 @@ namespace Win.CodeNavi
                 this.chartMain.SaveImage(sfDiag.FileName, ChartImageFormat.Png);
             }
 
+        }
+
+        private void chartCombo_TextChanged(object sender, EventArgs e)
+        {
+            foreach (SeriesChartType scType in Enum.GetValues(typeof(SeriesChartType)).Cast<SeriesChartType>())
+            {
+                if(scType.ToString().Equals(chartCombo.Text)){
+                    this.chartMain.Series["Default"].ChartType = scType;
+                }
+            }           
         }
     }
 }

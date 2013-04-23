@@ -435,11 +435,17 @@ namespace Win.CodeNavi
                 strSearchStringCollection.Add(strSearchString);
             }
             Properties.Settings.Default.SearchStrings = strSearchStringCollection;
-
             Properties.Settings.Default.Extensions = txtExt.Text;
 
             Properties.Settings.Default.Save();
 
+            // #ISSUE: 1 - https://github.com/nccgroup/ncccodenavi/issues/1
+            // Now we escape the search string if needed
+            string strSearch = txtSearch.Text;
+            if (opRegexSearch.Checked == true)
+            {
+                strSearch = Regex.Escape(strSearch);
+            }
 
             // Now initalize a search form
             frmSearch frmSearch = new frmSearch(txtSearch.Text + " in " + txtCodePath.Text + " (Regex:"+opRegexSearch.Checked+",Case:"+opCaseSearch.Checked+",Ignore Test:" + optIgnoreTest.Checked+",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this);
@@ -1354,6 +1360,11 @@ namespace Win.CodeNavi
             frmCodeViewNew docForm = new frmCodeViewNew("C:\\Data\\NCC\\!Code\\Git.Public\\ncccodenavi\\Win.CodeNavi\\Win.CodeNavi\\Scanner.cs", 0, this);
             docForm.MdiParent = this;
             docForm.Show();
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -186,18 +186,32 @@ namespace Win.CodeNavi
 
             try
             {
-                this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
-                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) {
-                    this.Scintilla.ConfigurationManager.Language = "cpp";
-                    this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                Console.WriteLine(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml");
+                if(File.Exists(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml")){
+                    Console.WriteLine("using external");
+                    this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
+                    this.Scintilla.ConfigurationManager.CustomLocation = frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml"; 
+                    this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
+                    this.Scintilla.ConfigurationManager.Configure();                  
+                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c"))  this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                } else {
+                    Console.WriteLine("using inbuilt");
+                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c"))  this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                    this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
+                    this.Scintilla.ConfigurationManager.Configure();
                 }
-                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("py")) this.Scintilla.ConfigurationManager.Language = "python";
-                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("rb")) this.Scintilla.ConfigurationManager.Language = "ruby";
+                
             }
-            catch (Exception)
+            catch (Exception eXp)
             {
-
+                this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
+                this.Scintilla.ConfigurationManager.Configure();
+                Console.WriteLine(eXp.Message);
             }
 
             this.IniLexer = false;

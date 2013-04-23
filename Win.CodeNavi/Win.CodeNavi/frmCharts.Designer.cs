@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCharts));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.toolChart = new System.Windows.Forms.ToolStrip();
             this.cmdSaveChart = new System.Windows.Forms.ToolStripButton();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartCombo = new System.Windows.Forms.ToolStripComboBox();
             this.toolChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,8 @@
             // 
             this.toolChart.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolChart.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmdSaveChart});
+            this.cmdSaveChart,
+            this.chartCombo});
             this.toolChart.Location = new System.Drawing.Point(0, 0);
             this.toolChart.Name = "toolChart";
             this.toolChart.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -67,18 +69,25 @@
             this.chartMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "Default";
-            this.chartMain.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartMain.Legends.Add(legend1);
+            chartArea3.Name = "Default";
+            this.chartMain.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartMain.Legends.Add(legend3);
             this.chartMain.Location = new System.Drawing.Point(12, 53);
             this.chartMain.Name = "chartMain";
-            series1.ChartArea = "Default";
-            series1.Legend = "Legend1";
-            series1.Name = "Default";
-            this.chartMain.Series.Add(series1);
+            series3.ChartArea = "Default";
+            series3.Legend = "Legend1";
+            series3.Name = "Default";
+            this.chartMain.Series.Add(series3);
             this.chartMain.Size = new System.Drawing.Size(484, 271);
             this.chartMain.TabIndex = 1;
+            // 
+            // chartCombo
+            // 
+            this.chartCombo.Name = "chartCombo";
+            this.chartCombo.Size = new System.Drawing.Size(121, 39);
+            this.chartCombo.Visible = false;
+            this.chartCombo.TextChanged += new System.EventHandler(this.chartCombo_TextChanged);
             // 
             // frmCharts
             // 
@@ -104,5 +113,6 @@
         private System.Windows.Forms.ToolStrip toolChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMain;
         private System.Windows.Forms.ToolStripButton cmdSaveChart;
+        private System.Windows.Forms.ToolStripComboBox chartCombo;
     }
 }
