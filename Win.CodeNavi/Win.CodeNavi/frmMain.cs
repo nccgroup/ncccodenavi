@@ -439,21 +439,35 @@ namespace Win.CodeNavi
 
             Properties.Settings.Default.Save();
 
-            // #ISSUE: 1 - https://github.com/nccgroup/ncccodenavi/issues/1
-            // Now we escape the search string if needed
-            string strSearch = txtSearch.Text;
+            // ISSUE 1: https://github.com/nccgroup/ncccodenavi/issues/1
+            // Prompt the user to automatically escape
+            string strSearchText = null;
             if (opRegexSearch.Checked == true)
             {
-                strSearch = Regex.Escape(strSearch);
+                if (MessageBox.Show("You have regex search enabled. Do you want me to escape your search term automatically to result in a literal search?", "Regex escape?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (opRegexSearch.Checked == true)
+                    {
+                        strSearchText = Regex.Escape(txtSearch.Text);
+                    }
+                }
+                else
+                {
+                    strSearchText = txtSearch.Text;
+                }
+            }
+            else
+            {
+                strSearchText = txtSearch.Text;
             }
 
             // Now initalize a search form
-            frmSearch frmSearch = new frmSearch(txtSearch.Text + " in " + txtCodePath.Text + " (Regex:"+opRegexSearch.Checked+",Case:"+opCaseSearch.Checked+",Ignore Test:" + optIgnoreTest.Checked+",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this);
+            frmSearch frmSearch = new frmSearch(strSearchText + " in " + txtCodePath.Text + " (Regex:"+opRegexSearch.Checked+",Case:"+opCaseSearch.Checked+",Ignore Test:" + optIgnoreTest.Checked+",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this);
             frmSearch.MdiParent = this;
             frmSearch.Visible = true;
 
             // Now initialize the object and start a scan
-            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, txtSearch.Text, optIgnoreComments.Checked, opRegexSearch.Checked, opCaseSearch.Checked, optIgnoreTest.Checked, txtExt.Text,richExclusions.Lines);
+            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, strSearchText, optIgnoreComments.Checked, opRegexSearch.Checked, opCaseSearch.Checked, optIgnoreTest.Checked, txtExt.Text, richExclusions.Lines);
             frmSearch.SetScanEngine(scanYoink);
             scanYoink.Start(this, frmSearch);
         }
