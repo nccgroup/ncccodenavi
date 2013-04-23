@@ -1,0 +1,10 @@
+eval
+shell_exec
+include
+require
+require_once
+file
+file_get_contents
+passthru
+system
+exec

@@ -1,0 +1,11 @@
+malloc\s*\(
+calloc\s*\(
+realloc\s*\(
+free\s*\(
+VirtualAlloc\s*
+=\s*new\s*
+delete\s*
+HeapCreate\s*\(
+HeapAlloc\s*\(
+HeapDestory\s*\(
+HeapFree\s*\(

@@ -1,0 +1,8 @@
+bind\s*\(
+listen\s*\(
+recvfrom\s*\(
+send\s*\(
+connect\s*\(
+accept\s*\(
+sendto\s*\(
+socket\s*\(

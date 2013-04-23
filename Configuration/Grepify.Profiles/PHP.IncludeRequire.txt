@@ -1,0 +1,5 @@
+include\s*\(
+include_once
+require\s*\(
+require_once
+virtual\s*\(

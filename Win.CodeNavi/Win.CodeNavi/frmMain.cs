@@ -582,7 +582,7 @@ namespace Win.CodeNavi
             txtExt.Items.Add("*.*"); // Everything
             txtExt.Items.Add("*.cpp;*.hpp;*.c;*.h;*.a;*.asm;*.mm;*.m"); // Generic native
             txtExt.Items.Add("*.php;*.java;*.py;*.rb"); // Generic non native / web
-            txtExt.Items.Add("*.cs;*.aspx;*.asp;*.xsp;*.xml;*.hta;*.htc;*.htm;*.html;*.js"); // .NET
+            txtExt.Items.Add("*.aspx;*.cs;*.asax;*.config;*.xml;*.js;*.ascx;*.asmx;*.ashx;*.axd;*.browser;*.csproj;*.cshtml;*.htm;*.html;*.resx;*.vb;*.master;*.sitemap;*.skin;*.asp;*.xsp;*.htc;*.hta");
             txtExt.Items.Add("*.xml;*.java;*.cpp;*.hpp;*.c;*.c"); // Android
             txtExt.Items.Add("*.m;*.mm;*.h;*.plist;*.pch;*.strings"); // iOS
             txtExt.SelectedIndex = 0;

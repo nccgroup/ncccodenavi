@@ -1,0 +1,12 @@
+open\s*\(
+fopen\s*\(
+fread\s*\(
+fwrite\s*\(
+CreateFile\s*\(
+WriteFile\s*\(
+WriteFileEx\s*\(
+ReadFile\s*\(
+ReadFileEx\s*\(
+CreateFileTransacted\s*\(
+ReadEncryptedFileRaw\s*\(
+File.Open\s*\(

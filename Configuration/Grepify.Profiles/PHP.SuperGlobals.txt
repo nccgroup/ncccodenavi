@@ -1,0 +1,8 @@
+\$_GET
+\$_POST
+\$_REQUEST
+\$_FILES
+\$_COOKIE
+\$_SERVER
+\$_SESSION
+\$GLOBALS

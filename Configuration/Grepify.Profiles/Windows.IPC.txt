@@ -1,0 +1,10 @@
+OpenFileMapping
+MapViewOfFile
+.\\\\pipe
+.\\\\mailslot
+CreateMutex
+CreateSemaphore
+CreateEvent
+LpcInitContext
+LpcAcceptContext
+NtAlpc

@@ -1,0 +1,3 @@
+\$_GET
+\$_POST
+\$_REQUEST

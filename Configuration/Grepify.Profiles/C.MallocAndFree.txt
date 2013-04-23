@@ -1,0 +1,4 @@
+malloc
+calloc
+realloc
+^\s*free\(

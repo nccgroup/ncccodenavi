@@ -1,0 +1,7 @@
+socket_create
+socket_connect
+socket_write
+socket_send
+socket_recv
+fsockopen
+pfsockopen

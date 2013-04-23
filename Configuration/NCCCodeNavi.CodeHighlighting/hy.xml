@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="hy">
+    <Styles>
+      <Style Name="Default" FontName="Consolas"/>
+      <Style Name="Default" FontSize="12"/>
+      <Style Name="Default" FontWeight="Bold"/>
+    </Styles>
+    
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        abstract evance barnier robert parlor
+      </List>
+    </AutoComplete>
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+
+    <Lexer LineCommentPrefix="//" StreamCommentPrefix="/* " StreamCommentSuffix=" /*" >
+      <Keywords List="0" Inherit="True">
+        int var echo evance rangers abstract
+      </Keywords>
+     
+      
+    </Lexer>
+
+    <Snippets>
+
+      <Snippet Shortcut="~">
+        ~$classname$()
+        {
+        $end$
+        }
+      </Snippet>
+
+    </Snippets>
+  </Language>
+</ScintillaNET>

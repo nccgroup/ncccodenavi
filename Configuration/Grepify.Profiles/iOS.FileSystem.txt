@@ -1,0 +1,10 @@
+fileExistsAtPath
+contentsEqualAtPath
+isReadableFileAtPath 
+isWritableFileAtPath 
+isExecutableFileAtPath
+isDeletableFileAtPath
+moveItemAtPath
+copyItemAtPath
+remoteItemAtPath
+createSymbolicLinkAtPath

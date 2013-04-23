@@ -1,0 +1,6 @@
+exec\s*\(
+passthru
+popen
+proc_open
+shell_exec
+system\s*\(

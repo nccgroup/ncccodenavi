@@ -5,8 +5,12 @@
 - FEATURE: Bookmarks in the code view
 - FEATURE: Charting of grepify results
 
+== NEW PROFILES ==
+- ASP.NET: From Richard T
+
 == BUG FIXES ==
--
+- BUG FIX: The case sensitive search was inverted
+- BUG FIX: If you specify a regex search it'll ask if you want to escape your search string
 
 = Changes in 1.0 =
 

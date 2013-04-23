@@ -1,0 +1,45 @@
+# this profile aims to locate interesting filesystem access locations in ASP.NET code, particularly where files are being opened or paths are being constructed
+# in general we don't catch Read and Write operations (except those using the static File. methods) because there will be too many false hits. Uncomment the lines at the bottom of the profile if you want to enable this
+(^|\W)FileStream
+(^|\W)FileMode\.
+(^|\W)FileAccess\.
+(^|\W)File\.Open
+(^|\W)File\.Create
+(^|\W)File\.Append
+(^|\W)File\.Copy
+(^|\W)File\.Decrypt
+(^|\W)File\.Encrypt
+(^|\W)File\.Delete
+(^|\W)File\.Exists
+(^|\W)File\.Get
+(^|\W)File\.Move
+(^|\W)File\.Read
+(^|\W)File\.Replace
+(^|\W)File\.Set
+(^|\W)File\.Write
+new\s*FileInfo
+# StreamReaders and StreamWriters can be constructed from a filename or an existing stream (which may not be filesystem related)
+(^|\W)StreamReader
+(^|\W)StreamWriter
+# abstract base classes for StreamReader and StreamWriter
+(^|\W)TextReader
+(^|\W)TextWriter
+(^|\W)Directory\.Create
+(^|\W)Directory\.Delete
+(^|\W)Directory\.Enumerate
+(^|\W)Directory\.Get
+(^|\W)Directory\.Exists
+(^|\W)Directory\.Move
+(^|\W)Directory\.Set
+new\s*DirectoryInfo
+\.MapPath\(
+ApplicationPhysicalPath
+ApplicationVirtualPath
+Path\.ChangeExtension
+(^|\W)Path\.Combine
+(^|\W)Path\.Get
+Path\.HasExtension
+Path\.IsRooted
+# uncomment these to catch Read and Write operations (but will probably cause loads of false hits)
+#\.Read\(
+#\.Write\(

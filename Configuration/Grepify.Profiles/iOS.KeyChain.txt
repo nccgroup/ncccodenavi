@@ -1,0 +1,8 @@
+kSecAttrAccessibleAlways
+kSecAttrAccessibleWhenUnlocked
+kSecAttrAccessibleAfterFirstUnlock
+kSecAttrAccessibleAlwaysThisDeviceOnly
+kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+SecItemAdd
+SecItemUpdate
