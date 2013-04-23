@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Text.RegularExpressions;
 
 
 namespace Win.CodeNavi
@@ -48,7 +49,8 @@ namespace Win.CodeNavi
                 
                 if (lstItem.SubItems.Count == 6)
                 {
-                    string strTemp = lstItem.SubItems[5].Text.Replace("\\s*", "").Replace("\\s", "");
+                    string strTemp = lstItem.SubItems[5].Text.Replace("\\s*", "").Replace("\\s", "").Replace("\\(", "");
+
 
                     if (lstNames.Contains(strTemp))
                     {
@@ -58,7 +60,7 @@ namespace Win.CodeNavi
                         lstCounts.Add(1);
                     }
                 } else {
-                    MessageBox.Show("Can't share a non Grepify set of results","Can't graph",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Can't chart a non Grepify set of results","Can't chart",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
                 }
             }
@@ -88,6 +90,7 @@ namespace Win.CodeNavi
 
             this.chartMain.Visible = true;
             this.chartMain.Invalidate();
+            this.chartMain.Update();
         }
 
         private void cmdSaveChart_Click(object sender, EventArgs e)
