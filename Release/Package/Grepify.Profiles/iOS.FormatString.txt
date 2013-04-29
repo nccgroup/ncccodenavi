@@ -1,0 +1,10 @@
+NSLog
+\[NSString stringWithFormat
+\[NSString stringByAppendingFormat
+\[NSString initWithFormat
+\[NSMutableString appendFormat
+\[NSAlert alertWithMessageText
+\[NSAlert informativeTextWithFormat
+\[NSException format
+\[NSMutableString appendFormat
+\[NSPredicate predicateWithFormat

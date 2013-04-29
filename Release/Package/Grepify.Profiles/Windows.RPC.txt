@@ -1,0 +1,6 @@
+RpcStringBindingCompose
+RpcBindingSetAuthInfo
+RpcServerRegisterAuthInfo
+RPC_C_AUTHN_LEVEL_NONE
+RpcServerRegisterIf2
+RPC_IF_ALLOW_SECURE_ONLY

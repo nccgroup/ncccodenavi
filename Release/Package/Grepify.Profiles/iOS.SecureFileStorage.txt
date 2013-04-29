@@ -1,0 +1,2 @@
+NSDataWritingFileProtectionComplete
+NSFileProtectionComplete

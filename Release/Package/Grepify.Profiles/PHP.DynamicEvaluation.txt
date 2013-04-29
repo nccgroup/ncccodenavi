@@ -1,0 +1,6 @@
+eval\s*\(
+call_user_func
+# call_user_func_array - line above will catch this
+call_user_method
+# call_user_method_array - ditto
+create_function

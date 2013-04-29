@@ -1,0 +1,4 @@
+http_redirect
+header\s*\(
+HttpMessage::setResponseCode
+HttpMessage::setHeaders

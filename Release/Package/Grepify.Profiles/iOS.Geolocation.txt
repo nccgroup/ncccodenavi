@@ -1,0 +1,7 @@
+CLLocationAccuracy
+kCLLocationAccuracyBestForNavigation
+kCLLocationAccuracyBest
+kCLLocationAccuracyNearestTenMeters
+kCLLocationAccuracyHundredMeters
+kCLLocationAccuracyKilometer
+kCLLocationAccuracyThreeKilometers

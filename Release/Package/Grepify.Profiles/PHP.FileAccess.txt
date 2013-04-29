@@ -1,0 +1,16 @@
+fopen
+readfile
+file\s*\(
+fpassthru
+gzopen
+gzfile
+gzpassthru
+readgzfile
+copy\s*\(
+rename\s*\(
+rmdir
+mkdir
+unlink
+file_get_contents
+file_put_contents
+parse_ini_file

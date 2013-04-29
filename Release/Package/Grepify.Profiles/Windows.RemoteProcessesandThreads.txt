@@ -1,0 +1,3 @@
+OpenProcess
+OpenThread
+CreateRemoteThread
