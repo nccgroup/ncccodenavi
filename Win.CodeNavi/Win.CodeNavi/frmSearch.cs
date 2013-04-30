@@ -275,7 +275,7 @@ namespace Win.CodeNavi
 
         private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void lstResults_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -345,6 +345,24 @@ namespace Win.CodeNavi
             frmCharts thisChart = new frmCharts(this.lstResults);
             thisChart.MdiParent = frmMaster;
             thisChart.Show();
+        }
+
+        private void cmdMark_Click(object sender, EventArgs e)
+        {
+            for (int intCount = 0; intCount < lstResults.SelectedItems.Count; intCount++)
+            {
+                lstResults.SelectedItems[intCount].BackColor = Color.Green;
+                lstResults.SelectedItems[intCount].ForeColor = Color.White;
+            }
+        }
+
+        private void cmdUnMark_Click(object sender, EventArgs e)
+        {
+            for (int intCount = 0; intCount < lstResults.SelectedItems.Count; intCount++)
+            {
+                lstResults.SelectedItems[intCount].BackColor = Color.White;
+                lstResults.SelectedItems[intCount].ForeColor = Color.Black;
+            }
         }
 
     }
