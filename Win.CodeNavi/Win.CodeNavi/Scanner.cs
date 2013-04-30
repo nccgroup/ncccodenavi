@@ -128,9 +128,9 @@ namespace Win.CodeNavi
                                             lock (engineLocal.objCount)
                                             {
                                                 engineLocal.intFinds++;
-                                                if (engineLocal.intFinds == 2000)
+                                                if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
                                                 {
-                                                    MessageBox.Show("2000 instances found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 }
                                             }
                                         }
@@ -159,27 +159,39 @@ namespace Win.CodeNavi
                                     lock (engineLocal.objCount)
                                     {
                                         engineLocal.intFinds++;
-                                        if (engineLocal.intFinds == 2000)
+                                        if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
                                         {
-                                            MessageBox.Show("2000 instances found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         }
                                     }
                                 }
                             }
                             else if (strAPIs == null) // Standard term search without regex
                             {
-                                if (strLine.Contains(strTerm) && frmSearch.IsDisposed == false)
+                                if (bCase == true && strLine.Contains(strTerm) && frmSearch.IsDisposed == false)
                                 {
                                     frmSearch.UpdateList(fInfo.DirectoryName, fInfo.Name, fInfo.Extension, intCount, strLine);
                                     lock (engineLocal.objCount)
                                     {
                                         engineLocal.intFinds++;
-                                        if (engineLocal.intFinds == 2000)
+                                        if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
                                         {
-                                            MessageBox.Show("2000 instances found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         }
                                     }
                                 }
+                                else if (bCase == false && strLine.ToLower().Contains(strTerm.ToLower()) && frmSearch.IsDisposed == false)
+                                {
+                                    frmSearch.UpdateList(fInfo.DirectoryName, fInfo.Name, fInfo.Extension, intCount, strLine);
+                                    lock (engineLocal.objCount)
+                                    {
+                                        engineLocal.intFinds++;
+                                        if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
+                                        {
+                                            MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+                                } 
                                 else if (frmSearch.IsDisposed == true)
                                 {
   
