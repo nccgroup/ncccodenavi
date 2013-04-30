@@ -1390,5 +1390,19 @@ namespace Win.CodeNavi
             frmSL.Show();
         }
 
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (tabForms.SelectedTab.Tag as Form).Dispose();
+            try
+            {
+                tabForms.SelectedTab.Dispose();
+            }
+            catch (Exception)
+            {
+
+            }
+            tabForms.Invalidate();
+        }
+
     }
 }

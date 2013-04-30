@@ -100,6 +100,8 @@ namespace Win.CodeNavi
             this.tabForms = new System.Windows.Forms.TabControl();
             this.timerSave = new System.Windows.Forms.Timer(this.components);
             this.cmdMaxSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxTab = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTop.SuspendLayout();
             this.tabNotes.SuspendLayout();
             this.tabNotesPage.SuspendLayout();
@@ -111,6 +113,7 @@ namespace Win.CodeNavi
             this.tabExclusions.SuspendLayout();
             this.toolExcl.SuspendLayout();
             this.statusStrip2.SuspendLayout();
+            this.ctxTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolTop
@@ -697,6 +700,7 @@ namespace Win.CodeNavi
             // tabForms
             // 
             this.tabForms.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabForms.ContextMenuStrip = this.ctxTab;
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.Location = new System.Drawing.Point(0, 39);
             this.tabForms.Name = "tabForms";
@@ -721,6 +725,20 @@ namespace Win.CodeNavi
             this.cmdMaxSearch.Size = new System.Drawing.Size(207, 22);
             this.cmdMaxSearch.Text = "&Maximum Search Results";
             this.cmdMaxSearch.Click += new System.EventHandler(this.cmdMaxSearch_Click);
+            // 
+            // ctxTab
+            // 
+            this.ctxTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.ctxTab.Name = "ctxTab";
+            this.ctxTab.Size = new System.Drawing.Size(153, 48);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Text = "&Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -764,6 +782,7 @@ namespace Win.CodeNavi
             this.toolExcl.PerformLayout();
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
+            this.ctxTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -831,6 +850,8 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStripButton cmdExlSave;
         private System.Windows.Forms.RichTextBox richExclusions;
         private System.Windows.Forms.ToolStripMenuItem cmdMaxSearch;
+        private System.Windows.Forms.ContextMenuStrip ctxTab;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }
 
