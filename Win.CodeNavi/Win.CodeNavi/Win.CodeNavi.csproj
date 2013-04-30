@@ -100,6 +100,12 @@
     <Compile Include="frmSearch.Designer.cs">
       <DependentUpon>frmSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSearchLimit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchLimit.Designer.cs">
+      <DependentUpon>frmSearchLimit.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniLexer.cs" />
     <Compile Include="IsText.cs" />
     <Compile Include="ListViewAntiFlicker.cs" />
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearch.resx">
       <DependentUpon>frmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchLimit.resx">
+      <DependentUpon>frmSearchLimit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

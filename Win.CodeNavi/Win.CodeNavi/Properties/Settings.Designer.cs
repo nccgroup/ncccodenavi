@@ -174,5 +174,17 @@ namespace Win.CodeNavi.Properties {
                 this["AutoSaveNotes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2000")]
+        public int MaxResults {
+            get {
+                return ((int)(this["MaxResults"]));
+            }
+            set {
+                this["MaxResults"] = value;
+            }
+        }
     }
 }

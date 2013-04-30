@@ -43,10 +43,12 @@ namespace Win.CodeNavi
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            string webVersion = e.Result.ToString();
+
+            string webVersion = null;
 
             try
             {
+                webVersion = e.Result.ToString();
                 if (webVersion.Equals(fvi.FileVersion) == false)
                 {
                     // Check the version strings against our expected X.X.X.X format

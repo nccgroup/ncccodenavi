@@ -99,6 +99,7 @@ namespace Win.CodeNavi
             this.richExclusions = new System.Windows.Forms.RichTextBox();
             this.tabForms = new System.Windows.Forms.TabControl();
             this.timerSave = new System.Windows.Forms.Timer(this.components);
+            this.cmdMaxSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTop.SuspendLayout();
             this.tabNotes.SuspendLayout();
             this.tabNotesPage.SuspendLayout();
@@ -276,7 +277,8 @@ namespace Win.CodeNavi
             this.cmdshowNotesPanel,
             this.optIgnoreTest,
             this.optIgnoreComments,
-            this.optAutoSaveNotes});
+            this.optAutoSaveNotes,
+            this.cmdMaxSearch});
             this.toolStripOpts.Image = ((System.Drawing.Image)(resources.GetObject("toolStripOpts.Image")));
             this.toolStripOpts.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripOpts.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -713,6 +715,13 @@ namespace Win.CodeNavi
             this.timerSave.Interval = 3000000;
             this.timerSave.Tick += new System.EventHandler(this.timerSave_Tick);
             // 
+            // cmdMaxSearch
+            // 
+            this.cmdMaxSearch.Name = "cmdMaxSearch";
+            this.cmdMaxSearch.Size = new System.Drawing.Size(207, 22);
+            this.cmdMaxSearch.Text = "&Maximum Search Results";
+            this.cmdMaxSearch.Click += new System.EventHandler(this.cmdMaxSearch_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -821,6 +830,7 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStrip toolExcl;
         private System.Windows.Forms.ToolStripButton cmdExlSave;
         private System.Windows.Forms.RichTextBox richExclusions;
+        private System.Windows.Forms.ToolStripMenuItem cmdMaxSearch;
     }
 }
 

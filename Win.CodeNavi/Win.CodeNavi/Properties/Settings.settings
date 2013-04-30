@@ -41,5 +41,8 @@
     <Setting Name="AutoSaveNotes" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="MaxResults" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

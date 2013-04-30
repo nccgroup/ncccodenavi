@@ -216,16 +216,18 @@ namespace Win.CodeNavi
                 txtCodePath.Text = txtCodePath.Items[0].ToString();
                 frmBrowser frmBStart = null;
 
-                if(Directory.Exists(txtCodePath.Text)){
-                    frmBStart  = new frmBrowser(txtCodePath.Text,"*.*",this);
+                if (Directory.Exists(txtCodePath.Text))
+                {
+                    frmBStart = new frmBrowser(txtCodePath.Text, "*.*", this);
                     frmBStart.MdiParent = this;
                     frmBStart.Show();
-                } else {
+                }
+                else
+                {
                     //frmBStart = new frmBrowser("C:\\","*.*",this);
                 }
-                
-                
             }
+
             if (Properties.Settings.Default.SearchStrings != null && Properties.Settings.Default.SearchStrings.Count > 0) txtSearch.Text = txtSearch.Items[0].ToString();
 
             if (Properties.Settings.Default.ShowNotesPanel == true)
@@ -1379,6 +1381,13 @@ namespace Win.CodeNavi
         private void txtSearch_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdMaxSearch_Click(object sender, EventArgs e)
+        {
+            frmSearchLimit frmSL = new frmSearchLimit();
+            frmSL.MdiParent = this;
+            frmSL.Show();
         }
 
     }

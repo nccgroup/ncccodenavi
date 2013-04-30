@@ -45,7 +45,7 @@ namespace Win.CodeNavi
         /// <returns></returns>
         private bool ScanFile(string strFile)
         {
-            if (engineLocal.bStopped == true || engineLocal.intFinds > 2000) 
+            if (engineLocal.bStopped == true || engineLocal.intFinds > Properties.Settings.Default.MaxResults) 
             {
                 engineLocal.LowerQueueCount();
                 return false;
