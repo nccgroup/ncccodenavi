@@ -169,8 +169,16 @@ namespace Win.CodeNavi
                     this.Close();
                 }
             }
+            else if (e.KeyCode.Equals(Keys.Enter)) // this is a terrible hack as the onKeyPress events didn't fire in the Scintilla events
+            {
+                if (this.Scintilla.Selection.Length > 0)
+                {
+                    frmMaster.DoSearchFromCode(Scintilla.Selection.Text.TrimEnd(' '));
+                    e.Handled = true;
+                }
+            }
         }
-
+        
         private const int LINE_NUMBERS_MARGIN_WIDTH = 35; // TODO Don't hardcode this
 
         private void frmCodeViewNew_Load(object sender, EventArgs e)
@@ -183,6 +191,7 @@ namespace Win.CodeNavi
             }
 
             this.Scintilla.Text = File.ReadAllText(strFilePath);
+            
 
             try
             {

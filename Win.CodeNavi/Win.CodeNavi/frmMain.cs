@@ -23,6 +23,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading;
 using ScintillaNET;
+using System.Collections;
 
 namespace Win.CodeNavi
 {
@@ -33,6 +34,8 @@ namespace Win.CodeNavi
         public SourceCodeMarkUp scmMine = new SourceCodeMarkUp(AssemblyDirectory);
         private Thread workerThreadV = null;
         private Thread workerThread = null;
+        //private Thread initialBrowser = null;
+        //private Stack stackTabs = null;
 
         static public string AssemblyDirectory
         {
@@ -140,6 +143,7 @@ namespace Win.CodeNavi
             string strVersion = fvi.FileVersion;
             this.Text = "NCC Group Code Navi - " + strVersion;
 
+
             // Load the previously search code paths and search terms
             // This saves the paths so they are persistent over runs
             if (Properties.Settings.Default.CodeFolders != null && Properties.Settings.Default.CodeFolders.Count > 0)
@@ -220,6 +224,9 @@ namespace Win.CodeNavi
                 {
                     frmBStart = new frmBrowser(txtCodePath.Text, "*.*", this);
                     frmBStart.MdiParent = this;
+
+                    //initialBrowser = new Thread(new ThreadStart(frmBStart.Show));
+                    //initialBrowser.Start();
                     frmBStart.Show();
                 }
                 else
@@ -1245,7 +1252,8 @@ namespace Win.CodeNavi
 
         private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //Console.WriteLine("Selected " + tabForms.SelectedIndex);
+
             if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
             {
                 (tabForms.SelectedTab.Tag as Form).Select();
@@ -1261,6 +1269,7 @@ namespace Win.CodeNavi
 
         private void tabForms_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            //Console.WriteLine("Selecting " + e.TabPageIndex + " - " + (e.TabPage.Parent as TabControl).SelectedIndex);
             //this.SuspendLayout();
             //DrawingControl.SuspendUpdate.Suspend(this);
         }

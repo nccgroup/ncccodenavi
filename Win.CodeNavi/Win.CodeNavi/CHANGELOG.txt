@@ -3,14 +3,22 @@
 == FEATURES ==
 - FEATURE: New code highlighting solution
 - FEATURE: Bookmarks in the code view
-- FEATURE: Charting of grepify results
+- FEATURE: Charting of grepify results - Sherief
+- FEATURE: Ability to colour search results so you know which you have looked at which you have not - Richard T
+- FEATURE: Ability configure upper limits of search results (default 2000) - Richard T
 
 == NEW PROFILES ==
 - ASP.NET: From Richard T
 
 == BUG FIXES ==
+- BUG FIX: Version check now wont annoy you if you're running a newer version than the published version (external commit by Amazing Ant)
 - BUG FIX: The case sensitive search was inverted
 - BUG FIX: If you specify a regex search it'll ask if you want to escape your search string
+- BUG FIX: Case sensitivity wasn't applying to non regex searches - Felix
+- BUG FIX: Comments regex excluded #defines - Felix
+- BUG FIX: UX on code searches (i.e. right-click -> search or enter) changed to not annoy you with prompts - Felix
+- BUG FIX: To actually work when not connected to the Internet at load time (doh! - experienced while on a plane)
+- BUG FIX: Some performance improvements on lower powered machines around loading (experienced while on a down-clocked laptop on a plane)
 
 = Changes in 1.0 =
 
