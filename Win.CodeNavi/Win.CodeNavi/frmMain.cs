@@ -446,17 +446,18 @@ namespace Win.CodeNavi
             string strSearchText = null;
             if (opRegexSearch.Checked == true)
             {
-                if (MessageBox.Show("You have regex search enabled. Do you want me to escape your search term automatically to result in a literal search?", "Regex escape?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    if (opRegexSearch.Checked == true)
-                    {
+
+                //if (MessageBox.Show("You have regex search enabled. Do you want me to escape your search term automatically to result in a literal search?", "Regex escape?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                    //if (opRegexSearch.Checked == true)
+                    //{
                         strSearchText = Regex.Escape(txtSearch.Text);
-                    }
-                }
-                else
-                {
+                    //}
+                //}
+                //else
+                //{
                     strSearchText = txtSearch.Text;
-                }
+                //}
             }
             else
             {
