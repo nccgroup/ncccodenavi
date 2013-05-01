@@ -34,8 +34,6 @@ namespace Win.CodeNavi
         public SourceCodeMarkUp scmMine = new SourceCodeMarkUp(AssemblyDirectory);
         private Thread workerThreadV = null;
         private Thread workerThread = null;
-        //private Thread initialBrowser = null;
-        //private Stack stackTabs = null;
 
         static public string AssemblyDirectory
         {
@@ -1269,6 +1267,7 @@ namespace Win.CodeNavi
 
         private void tabForms_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            //e.TabPage
             //Console.WriteLine("Selecting " + e.TabPageIndex + " - " + (e.TabPage.Parent as TabControl).SelectedIndex);
             //this.SuspendLayout();
             //DrawingControl.SuspendUpdate.Suspend(this);
@@ -1402,6 +1401,7 @@ namespace Win.CodeNavi
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             (tabForms.SelectedTab.Tag as Form).Dispose();
             try
             {

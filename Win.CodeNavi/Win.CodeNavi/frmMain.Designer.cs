@@ -63,6 +63,7 @@ namespace Win.CodeNavi
             this.optIgnoreTest = new System.Windows.Forms.ToolStripMenuItem();
             this.optIgnoreComments = new System.Windows.Forms.ToolStripMenuItem();
             this.optAutoSaveNotes = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmdMaxSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmdGrepifyScan = new System.Windows.Forms.ToolStripButton();
             this.optGrepify = new System.Windows.Forms.ToolStripDropDownButton();
@@ -98,10 +99,9 @@ namespace Win.CodeNavi
             this.lblIntro = new System.Windows.Forms.Label();
             this.richExclusions = new System.Windows.Forms.RichTextBox();
             this.tabForms = new System.Windows.Forms.TabControl();
-            this.timerSave = new System.Windows.Forms.Timer(this.components);
-            this.cmdMaxSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxTab = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerSave = new System.Windows.Forms.Timer(this.components);
             this.toolTop.SuspendLayout();
             this.tabNotes.SuspendLayout();
             this.tabNotesPage.SuspendLayout();
@@ -339,6 +339,13 @@ namespace Win.CodeNavi
             this.optAutoSaveNotes.Size = new System.Drawing.Size(207, 22);
             this.optAutoSaveNotes.Text = "&Auto Save Notes (5 Mins)";
             this.optAutoSaveNotes.Click += new System.EventHandler(this.optAutoSaveNotes_Click);
+            // 
+            // cmdMaxSearch
+            // 
+            this.cmdMaxSearch.Name = "cmdMaxSearch";
+            this.cmdMaxSearch.Size = new System.Drawing.Size(207, 22);
+            this.cmdMaxSearch.Text = "&Maximum Search Results";
+            this.cmdMaxSearch.Click += new System.EventHandler(this.cmdMaxSearch_Click);
             // 
             // toolStripSeparator2
             // 
@@ -713,19 +720,6 @@ namespace Win.CodeNavi
             this.tabForms.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabForms_Selecting);
             this.tabForms.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabForms_Selected);
             // 
-            // timerSave
-            // 
-            this.timerSave.Enabled = true;
-            this.timerSave.Interval = 3000000;
-            this.timerSave.Tick += new System.EventHandler(this.timerSave_Tick);
-            // 
-            // cmdMaxSearch
-            // 
-            this.cmdMaxSearch.Name = "cmdMaxSearch";
-            this.cmdMaxSearch.Size = new System.Drawing.Size(207, 22);
-            this.cmdMaxSearch.Text = "&Maximum Search Results";
-            this.cmdMaxSearch.Click += new System.EventHandler(this.cmdMaxSearch_Click);
-            // 
             // ctxTab
             // 
             this.ctxTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -739,6 +733,12 @@ namespace Win.CodeNavi
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // timerSave
+            // 
+            this.timerSave.Enabled = true;
+            this.timerSave.Interval = 3000000;
+            this.timerSave.Tick += new System.EventHandler(this.timerSave_Tick);
             // 
             // frmMain
             // 
