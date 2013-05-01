@@ -198,14 +198,20 @@ namespace Win.CodeNavi
                         }
 
                     }
-                    catch (Exception eXp)
+                    catch (Exception)
                     {
                         this.scintilla.ConfigurationManager.IsBuiltInEnabled = true;
-                        if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("cs")) this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                        if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("c")) this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                        this.scintilla.ConfigurationManager.Language = Path.GetExtension(sbTemp.ToString()).Substring(1);
+                        try
+                        {
+                            if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("cs")) this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                            if (Path.GetExtension(sbTemp.ToString()).Substring(1).ToLower().Equals("c")) this.scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                            this.scintilla.ConfigurationManager.Language = Path.GetExtension(sbTemp.ToString()).Substring(1);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
                         this.scintilla.ConfigurationManager.Configure();
-                        Console.WriteLine(eXp.Message);
                     }
                 }
                 else if (IsTextTester.IsText(out encodingForFile, sbTemp.ToString(), 100) == false && fileBytes != null)

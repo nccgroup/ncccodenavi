@@ -6,6 +6,7 @@
 - FEATURE: Charting of grepify results - Sherief
 - FEATURE: Ability to colour search results so you know which you have looked at which you have not - Richard T
 - FEATURE: Ability configure upper limits of search results (default 2000) - Richard T
+- FEATURE: Ability to reload Grepify profiles - Gabriel
 
 == NEW PROFILES ==
 - ASP.NET: From Richard T
