@@ -102,6 +102,7 @@ namespace Win.CodeNavi
             this.ctxTab = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerSave = new System.Windows.Forms.Timer(this.components);
+            this.cmdReloadGrepifyProfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTop.SuspendLayout();
             this.tabNotes.SuspendLayout();
             this.tabNotesPage.SuspendLayout();
@@ -281,7 +282,8 @@ namespace Win.CodeNavi
             this.optIgnoreTest,
             this.optIgnoreComments,
             this.optAutoSaveNotes,
-            this.cmdMaxSearch});
+            this.cmdMaxSearch,
+            this.cmdReloadGrepifyProfiles});
             this.toolStripOpts.Image = ((System.Drawing.Image)(resources.GetObject("toolStripOpts.Image")));
             this.toolStripOpts.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripOpts.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -740,6 +742,13 @@ namespace Win.CodeNavi
             this.timerSave.Interval = 3000000;
             this.timerSave.Tick += new System.EventHandler(this.timerSave_Tick);
             // 
+            // cmdReloadGrepifyProfiles
+            // 
+            this.cmdReloadGrepifyProfiles.Name = "cmdReloadGrepifyProfiles";
+            this.cmdReloadGrepifyProfiles.Size = new System.Drawing.Size(207, 22);
+            this.cmdReloadGrepifyProfiles.Text = "Reload &Grepify Profiles";
+            this.cmdReloadGrepifyProfiles.Click += new System.EventHandler(this.cmdReloadGrepifyProfiles_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -852,6 +861,7 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStripMenuItem cmdMaxSearch;
         private System.Windows.Forms.ContextMenuStrip ctxTab;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmdReloadGrepifyProfiles;
     }
 }
 

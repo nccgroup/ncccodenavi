@@ -1414,5 +1414,21 @@ namespace Win.CodeNavi
             tabForms.Invalidate();
         }
 
+        private void cmdReloadGrepifyProfiles_Click(object sender, EventArgs e)
+        {
+            optGrepify.DropDownItems.Clear();
+            if (Directory.Exists(AssemblyDirectory + "\\Grepify.Profiles"))
+            {
+                foreach (string strFile in Directory.GetFiles(AssemblyDirectory + "\\Grepify.Profiles"))
+                {
+                    optGrepify.DropDownItems.Add(Path.GetFileNameWithoutExtension(strFile));
+                }
+            }
+            else
+            {
+                optGrepify.DropDownItems.Add("Profile directory does not exist - " + AssemblyDirectory + "\\Grepify.Profiles");
+            }
+        }
+
     }
 }
