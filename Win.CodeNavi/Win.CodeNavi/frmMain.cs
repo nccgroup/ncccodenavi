@@ -1263,10 +1263,20 @@ namespace Win.CodeNavi
         {
             if (PreviousTab != null)
             {
-                bClosingTab = true;
-                tabForms.SelectTab(PreviousTab);
-                tabForms.Update();
-                bClosingTab = false;
+                try
+                {
+                    bClosingTab = true;
+                    tabForms.SelectTab(PreviousTab);
+                }
+                catch (Exception) // if the previous tab isn't valid
+                {
+
+                }
+                finally
+                {
+                    tabForms.Update();
+                    bClosingTab = false;
+                }
             }
             ActivateMdiChild(null);
             ((sender as Form).Tag as TabPage).Parent = null;
