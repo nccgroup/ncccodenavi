@@ -7,6 +7,7 @@
 - FEATURE: Ability to colour search results so you know which you have looked at which you have not - Richard T request
 - FEATURE: Ability configure upper limits of search results (default 2000) - Richard T request
 - FEATURE: Ability to reload Grepify profiles - Gabriel request via a Felix path (monitors the file system for changes)
+- FEATURE: Right-click close now implemented on tabs - Richard T request
 
 == IMPROVEMENTS ==
 - IMPROVEMENT: Speed via a patch from Felix ... zooom zoom!

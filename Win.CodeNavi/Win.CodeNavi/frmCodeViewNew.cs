@@ -245,20 +245,22 @@ namespace Win.CodeNavi
 
         private void googleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.Scintilla.Selection.Text != null && this.Scintilla.Selection.Text.Length > 0)
+            {
+                string strTarget = "http://www.google.com/search?q=" + Scintilla.Selection.Text.TrimEnd(' ');
 
-            string strTarget = "http://www.google.com/search?q=" + Scintilla.Selection.Text.TrimEnd(' ');
-            
-            try
-            {
-                System.Diagnostics.Process.Start(strTarget);
-            }
-            catch (System.ComponentModel.Win32Exception noBrowser)
-            {
-                if (noBrowser.ErrorCode == -2147467259) MessageBox.Show(noBrowser.Message);
-            }
-            catch (System.Exception other)
-            {
-                MessageBox.Show(other.Message);
+                try
+                {
+                    System.Diagnostics.Process.Start(strTarget);
+                }
+                catch (System.ComponentModel.Win32Exception noBrowser)
+                {
+                    if (noBrowser.ErrorCode == -2147467259) MessageBox.Show(noBrowser.Message);
+                }
+                catch (System.Exception other)
+                {
+                    MessageBox.Show(other.Message);
+                }
             }
 		
 
@@ -271,21 +273,23 @@ namespace Win.CodeNavi
 
         private void cmdCERTSearch_Click(object sender, EventArgs e)
         {
-            string strTarget = "http://search.cert.org/search?client=default_frontend&site=default_collection&output=xml_no_dtd&proxystylesheet=default_frontend&ie=UTF-8&oe=UTF-8&as_q=" + Scintilla.Selection.Text.TrimEnd(' ') + "&num=10&btnG=Search&as_epq=&as_oq=&as_eq=&lr=&as_ft=i&as_filetype=&as_occt=any&as_dt=i&as_sitesearch=www.securecoding.cert.org&sort=&as_lq=";
-            
-            try
+            if (this.Scintilla.Selection.Text != null && this.Scintilla.Selection.Text.Length > 0)
             {
-                System.Diagnostics.Process.Start(strTarget);
+                string strTarget = "http://search.cert.org/search?client=default_frontend&site=default_collection&output=xml_no_dtd&proxystylesheet=default_frontend&ie=UTF-8&oe=UTF-8&as_q=" + Scintilla.Selection.Text.TrimEnd(' ') + "&num=10&btnG=Search&as_epq=&as_oq=&as_eq=&lr=&as_ft=i&as_filetype=&as_occt=any&as_dt=i&as_sitesearch=www.securecoding.cert.org&sort=&as_lq=";
+
+                try
+                {
+                    System.Diagnostics.Process.Start(strTarget);
+                }
+                catch (System.ComponentModel.Win32Exception noBrowser)
+                {
+                    if (noBrowser.ErrorCode == -2147467259) MessageBox.Show(noBrowser.Message);
+                }
+                catch (System.Exception other)
+                {
+                    MessageBox.Show(other.Message);
+                }
             }
-            catch (System.ComponentModel.Win32Exception noBrowser)
-            {
-                if (noBrowser.ErrorCode == -2147467259) MessageBox.Show(noBrowser.Message);
-            }
-            catch (System.Exception other)
-            {
-                MessageBox.Show(other.Message);
-            }
-            
         }
 
         private void ctxCodeView_Opening(object sender, CancelEventArgs e)
@@ -295,7 +299,7 @@ namespace Win.CodeNavi
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Clipboard.SetText(this.Scintilla.Selection.Text);
+            if(this.Scintilla.Selection.Text != null) System.Windows.Forms.Clipboard.SetText(this.Scintilla.Selection.Text);
         }
 
         private void cmdSearch_Click(object sender, EventArgs e)
