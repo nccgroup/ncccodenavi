@@ -1,20 +1,21 @@
 ﻿= Changes in 1.1 =
 
 == FEATURES ==
-- FEATURE: New code highlighting solution based on Scintilla (which Notepad++ uses)
-- FEATURE: Bookmarks in the code view
-- FEATURE: Charting of grepify results - Sherief request
+- FEATURE: New code lexer / highlighting solution based on Scintilla (which Notepad++ uses)
+- FEATURE: Bookmarks in the code view by virtue of Sctintilla 
+- FEATURE: Charting of grepify results into pretty PIE charts - Sherief request
 - FEATURE: Ability to colour search results so you know which you have looked at which you have not - Richard T request
 - FEATURE: Ability configure upper limits of search results (default 2000) - Richard T request
-- FEATURE: Ability to reload Grepify profiles - Gabriel request via a Felix path (monitors the file system for changes)
+- FEATURE: Ability to reload Grepify profiles - Gabriel request via a Felix patch (monitors the file system for changes)
 - FEATURE: Right-click close now implemented on tabs - Richard T request
 
 == IMPROVEMENTS ==
 - IMPROVEMENT: Speed via a patch from Felix ... zooom zoom!
-- IMPROVEMENT: CLosing a tab now reverts to the previous tab via a path from Felix!
+- IMPROVEMENT: Closing a tab now reverts to the previous tab via a patch from Felix!
 - IMPROVEMENT: Now remember the code path in the drop down even if you only use the browser
+- IMPROVEMENT: File search is now partial in the file browser
 
-== NEW PROFILES ==
+== NEW GREPIFY PROFILES ==
 - ASP.NET: Submission from Richard T
 
 == BUG FIXES ==
@@ -27,6 +28,7 @@
 - BUG FIX: To actually work when not connected to the Internet at load time (doh! - experienced while on a plane)
 - BUG FIX: Some performance improvements on lower powered machines around loading (experienced while on a down-clocked laptop on a plane)
 - BUG FIX: File searching in the file browser now works properly..
+- BUG FIX: Numerous robustness improvements throughout the code base.
 
 = Changes in 1.0 =
 
