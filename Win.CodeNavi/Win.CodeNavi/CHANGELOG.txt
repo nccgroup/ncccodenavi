@@ -8,6 +8,7 @@
 - FEATURE: Ability configure upper limits of search results (default 2000) - Richard T request
 - FEATURE: Ability to reload Grepify profiles - Gabriel request via a Felix patch (monitors the file system for changes)
 - FEATURE: Right-click close now implemented on tabs - Richard T request
+- FEATURE: If you select part of the code in the code view form then it will highlight other similar bits in the code view
 
 == IMPROVEMENTS ==
 - IMPROVEMENT: Speed via a patch from Felix ... zooom zoom!
