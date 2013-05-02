@@ -60,12 +60,11 @@ namespace Win.CodeNavi
                 }
 
                 
-                string[] strLines = File.ReadAllLines(strFile,encodingForFile);
                 FileInfo fInfo = new FileInfo(strFile);
 
                 int intCount = 0;
 
-                foreach (string strLine in strLines)
+                foreach (string strLine in File.ReadLines(strFile, encodingForFile))
                 {
                     intCount++;
 
@@ -206,7 +205,6 @@ namespace Win.CodeNavi
                 }
 
                 fInfo = null;
-                strLines = null;
             }
             catch (Exception)
             {
