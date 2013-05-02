@@ -26,6 +26,7 @@
 - BUG FIX: UX on code searches (i.e. right-click -> search or enter) changed to not annoy you with prompts - Felix request
 - BUG FIX: To actually work when not connected to the Internet at load time (doh! - experienced while on a plane)
 - BUG FIX: Some performance improvements on lower powered machines around loading (experienced while on a down-clocked laptop on a plane)
+- BUG FIX: File searching in the file browser now works properly..
 
 = Changes in 1.0 =
 

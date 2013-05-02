@@ -18,6 +18,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using ScintillaNET;
+using System.Collections;
 
 namespace Win.CodeNavi
 {
@@ -28,6 +29,7 @@ namespace Win.CodeNavi
         static ImageList _imageList;
         frmMain frmMaster = null;
         private string strCurrFile = null;
+        private Stack stackFinds = new Stack();
 
         public static ImageList ImageList
         {
@@ -240,10 +242,11 @@ namespace Win.CodeNavi
         {
             foreach (TreeNode tn in treeNode.Nodes)
             {
-                if (tn.Text.ToLower().Equals(txtSearch.Text.ToLower()))
+                if (tn.Text.ToLower().Contains(txtSearch.Text.ToLower()))
                 {
-                    if (treeFiles.SelectedNode.Equals(tn) == false)
+                    if (stackFinds.Contains(tn) == false)
                     {
+                        stackFinds.Push(tn);
                         treeFiles.SelectedNode = tn;
                         treeFiles.Select();
                         return true;
@@ -274,6 +277,11 @@ namespace Win.CodeNavi
                 if (FindRecursive(treeNode) == true)
                 {
                     return;
+                }
+                else
+                {
+                    stackFinds.Clear();
+                    FindRecursive(treeNode);
                 }
             }
         }

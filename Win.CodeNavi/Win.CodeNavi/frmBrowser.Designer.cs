@@ -98,7 +98,7 @@ namespace Win.CodeNavi
             // 
             // cmdFind
             // 
-            this.cmdFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.cmdFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom ) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdFind.Location = new System.Drawing.Point(179, 428);
             this.cmdFind.Name = "cmdFind";
