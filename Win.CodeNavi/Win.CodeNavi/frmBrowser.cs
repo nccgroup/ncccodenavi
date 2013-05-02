@@ -178,8 +178,8 @@ namespace Win.CodeNavi
                     
                     try
                     {
-                        Console.WriteLine(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(sbTemp.ToString()).Substring(1) + ".xml");
-                        if (File.Exists(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(sbTemp.ToString()).Substring(1) + ".xml"))
+                        Console.WriteLine(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(sbTemp.ToString()).Substring(1) + ".xml");
+                        if (File.Exists(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(sbTemp.ToString()).Substring(1) + ".xml"))
                         {
                             this.scintilla.ConfigurationManager.IsBuiltInEnabled = false;
                             this.scintilla.ConfigurationManager.CustomLocation = frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\";

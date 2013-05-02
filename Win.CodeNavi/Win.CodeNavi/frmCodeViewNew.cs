@@ -195,8 +195,8 @@ namespace Win.CodeNavi
 
             try
             {
-                Console.WriteLine(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml");
-                if(File.Exists(frmMain.AssemblyDirectory + ".\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml")){
+                Console.WriteLine(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml");
+                if(File.Exists(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml")){
                     this.Scintilla.ConfigurationManager.IsBuiltInEnabled = false;
                     this.Scintilla.ConfigurationManager.CustomLocation = frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\";
                     this.scintilla.ConfigurationManager.Language = "default";
@@ -219,7 +219,7 @@ namespace Win.CodeNavi
                 if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
                 this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
                 this.Scintilla.ConfigurationManager.Configure();
-                Console.WriteLine(eXp.Message);
+                //Console.WriteLine(eXp.Message);
             }
 
             this.IniLexer = false;

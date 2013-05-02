@@ -8,6 +8,10 @@
 - FEATURE: Ability configure upper limits of search results (default 2000) - Richard T
 - FEATURE: Ability to reload Grepify profiles - Gabriel
 
+== IMPROVEMENTS ==
+- IMPROVEMENT: Speed via a patch from Felix ... zooom zoom!
+- IMPROVEMRNT: CLosing a tab now reverts to the previous tab via a path from Felix!
+
 == NEW PROFILES ==
 - ASP.NET: From Richard T
 
