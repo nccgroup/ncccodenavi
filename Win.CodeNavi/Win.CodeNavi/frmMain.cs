@@ -919,7 +919,7 @@ namespace Win.CodeNavi
             }
             else if (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == true)
             {
-                MessageBox.Show("We currently don't support browsing from the root directory due to the expensive file enumeration we do we we load", "Not support", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("We currently don't support browsing from the root directory due to the expensive file enumeration we do when we load", "Not support", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
