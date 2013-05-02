@@ -34,6 +34,8 @@ namespace Win.CodeNavi
         public SourceCodeMarkUp scmMine = new SourceCodeMarkUp(AssemblyDirectory);
         private Thread workerThreadV = null;
         private Thread workerThread = null;
+        private TabPage PreviousTab;
+        private bool bClosingTab = false;
 
         static public string AssemblyDirectory
         {
@@ -1218,6 +1220,8 @@ namespace Win.CodeNavi
             //this.SuspendLayout();
             //DrawingControl.SuspendUpdate.Suspend(this);
       
+            // First set the previous TabPage
+            PreviousTab = tabForms.SelectedTab;
             // If child form is new and no has tabPage, 
             // create new tabPage 
             if (this.MdiChildren.Count() > 0)
@@ -1257,10 +1261,17 @@ namespace Win.CodeNavi
         private void ActiveMdiChild_FormClosed(object sender,
                                     FormClosedEventArgs e)
         {
+            if (PreviousTab != null)
+            {
+                bClosingTab = true;
+                tabForms.SelectTab(PreviousTab);
+                tabForms.Update();
+                bClosingTab = false;
+            }
             ActivateMdiChild(null);
             ((sender as Form).Tag as TabPage).Parent = null;
             ((sender as Form).Tag as TabPage).Dispose();
-            
+   
         }
 
         private void ActiveMdiChild_SizeChanged(object sender, EventArgs e)
@@ -1298,6 +1309,14 @@ namespace Win.CodeNavi
         {
             //DrawingControl.SuspendUpdate.Resume(this);
             //fthis.ResumeLayout();
+        }
+
+        private void tabForms_Deselected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPage != null && !bClosingTab) // null probably means a tab was closed
+            {
+                PreviousTab = e.TabPage;
+            }
         }
 
         private void optAutoSaveNotes_Click(object sender, EventArgs e)
