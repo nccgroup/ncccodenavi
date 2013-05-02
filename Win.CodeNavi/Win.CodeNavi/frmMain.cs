@@ -1513,5 +1513,25 @@ namespace Win.CodeNavi
         {
             UpdateGrepifyProfiles();
         }
+
+        private void tabForms_MouseDown(object sender, MouseEventArgs e)
+        {
+            // check if the right mouse button was pressed
+            if (e.Button == MouseButtons.Right)
+            {
+                // iterate through all the tab pages
+                for (int i = 0; i < tabForms.TabCount; i++)
+                {
+                    // http://stackoverflow.com/questions/3747893/how-do-i-find-out-what-tab-im-right-clicking-on-in-winforms-tabcontrol
+                    if (tabForms.GetTabRect(i).Contains(e.Location)) 
+                    {
+                        // show the context menu here
+                        tabForms.SelectTab(i);
+                        ctxTab.Show(this.tabForms, e.Location);
+                    }
+
+                }
+            }
+        }
     }
 }

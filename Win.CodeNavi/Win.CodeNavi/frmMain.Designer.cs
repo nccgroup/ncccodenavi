@@ -708,7 +708,6 @@ namespace Win.CodeNavi
             // tabForms
             // 
             this.tabForms.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.tabForms.ContextMenuStrip = this.ctxTab;
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.Location = new System.Drawing.Point(0, 39);
             this.tabForms.Name = "tabForms";
@@ -720,6 +719,7 @@ namespace Win.CodeNavi
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
             this.tabForms.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabForms_Selecting);
             this.tabForms.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabForms_Selected);
+            this.tabForms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabForms_MouseDown);
             // 
             // ctxTab
             // 
