@@ -52,6 +52,27 @@ namespace Win.CodeNavi
         public frmMain()
         {
             InitializeComponent();
+            if (Directory.Exists(AssemblyDirectory + "\\Grepify.Profiles"))
+            {
+                FileSystemWatcher watcher = new FileSystemWatcher();
+                watcher.Path = AssemblyDirectory + "\\Grepify.Profiles";
+                /* Watch for changes in LastAccess and LastWrite times, and
+                   the renaming of files.*/
+                watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+                   | NotifyFilters.FileName;
+                // Only watch text files.
+                watcher.Filter = "*.txt";
+
+                // Add event handlers.
+                watcher.Changed += new FileSystemEventHandler(WatcherUpdateGrepifyProfiles);
+                watcher.Created += new FileSystemEventHandler(WatcherUpdateGrepifyProfiles);
+                watcher.Deleted += new FileSystemEventHandler(WatcherUpdateGrepifyProfiles);
+                watcher.Renamed += new RenamedEventHandler(WatcherRenameUpdateGrepifyProfiles);
+
+                // Begin watching.
+                watcher.EnableRaisingEvents = true;
+            
+            }
         }
 
         /// <summary>
@@ -1414,7 +1435,7 @@ namespace Win.CodeNavi
             tabForms.Invalidate();
         }
 
-        private void cmdReloadGrepifyProfiles_Click(object sender, EventArgs e)
+        private void UpdateGrepifyProfiles()
         {
             optGrepify.DropDownItems.Clear();
             if (Directory.Exists(AssemblyDirectory + "\\Grepify.Profiles"))
@@ -1429,6 +1450,13 @@ namespace Win.CodeNavi
                 optGrepify.DropDownItems.Add("Profile directory does not exist - " + AssemblyDirectory + "\\Grepify.Profiles");
             }
         }
-
+        private void WatcherUpdateGrepifyProfiles(object e, FileSystemEventArgs a)
+        {
+            UpdateGrepifyProfiles();
+        }
+        private void WatcherRenameUpdateGrepifyProfiles(object e, RenamedEventArgs a)
+        {
+            UpdateGrepifyProfiles();
+        }
     }
 }
