@@ -568,6 +568,7 @@ namespace Win.CodeNavi
             this.richNotes.TabIndex = 0;
             this.richNotes.Text = "";
             this.richNotes.WordWrap = false;
+            this.richNotes.SelectionChanged += new System.EventHandler(this.richNotes_SelectionChanged);
             this.richNotes.TextChanged += new System.EventHandler(this.richNotes_TextChanged);
             // 
             // ctxRichNotes

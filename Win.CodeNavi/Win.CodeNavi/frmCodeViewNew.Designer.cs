@@ -76,6 +76,7 @@ namespace Win.CodeNavi
             this.scintilla.Name = "_scintilla";
             this.scintilla.TabIndex = 0;
             this.scintilla.StyleNeeded += new System.EventHandler<ScintillaNET.StyleNeededEventArgs>(this.scintilla_StyleNeeded);
+            this.scintilla.SelectionChanged += new System.EventHandler(this.HandleSelectionChange);
             this.scintilla.ContextMenuStrip = this.ctxCodeView;
             //this.scintilla
             // 

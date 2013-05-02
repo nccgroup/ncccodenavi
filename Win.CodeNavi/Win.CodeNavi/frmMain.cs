@@ -1533,5 +1533,10 @@ namespace Win.CodeNavi
                 }
             }
         }
+
+        private void richNotes_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

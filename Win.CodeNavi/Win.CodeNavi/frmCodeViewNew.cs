@@ -20,6 +20,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using ScintillaNET;
+using System.Collections;
 
 namespace Win.CodeNavi
 {
@@ -30,6 +31,7 @@ namespace Win.CodeNavi
         private frmMain frmMaster = null;
         private bool _iniLexer;
         private string _filePath;
+        private Stack stackRanges = new Stack();
 
         public bool IniLexer
         {
@@ -37,6 +39,9 @@ namespace Win.CodeNavi
             set { _iniLexer = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void AddOrRemoveAsteric()
         {
             if (scintilla.Modified)
@@ -51,6 +56,11 @@ namespace Win.CodeNavi
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void scintilla_StyleNeeded(object sender, StyleNeededEventArgs e)
         {
             // Style the _text
@@ -148,7 +158,11 @@ namespace Win.CodeNavi
             strFilePath = strFile;
             this.intLine = intLine;
             this.frmMaster = frmMaster;
-            
+            this.scintilla.Styles[1].BackColor = Color.LightGreen;
+            this.scintilla.Styles[1].ForeColor = Color.White;
+            this.scintilla.Styles[1].Font = new Font(this.scintilla.Font, FontStyle.Regular);
+            this.scintilla.Indicators[0].Style = IndicatorStyle.RoundBox;
+            this.scintilla.Indicators[0].Color = Color.Green;
         }
 
         private void frmCodeViewNew_KeyDown(object sender, KeyEventArgs e)
@@ -212,14 +226,13 @@ namespace Win.CodeNavi
                 }
                 
             }
-            catch (Exception eXp)
+            catch (Exception)
             {
                 this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
                 if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
                 if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
                 this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
                 this.Scintilla.ConfigurationManager.Configure();
-                //Console.WriteLine(eXp.Message);
             }
 
             this.IniLexer = false;
@@ -322,15 +335,17 @@ namespace Win.CodeNavi
             copyToolStripMenuItem_Click(null, null);
         }
 
-        private void HandleSelectionChange()
+        private void HandleSelectionChange(object sender, EventArgs e)
         {
-            /*
-            if (bHighlighting == false)
+            // http://scintillanet.codeplex.com/discussions/53292
+            this.scintilla.NativeInterface.IndicatorClearRange(0, this.scintilla.Text.Length);
+
+            // http://scintillanet.codeplex.com/discussions/361003
+            foreach (Range r in scintilla.FindReplace.FindAll(scintilla.Selection.Text))
             {
-                frmMaster.scmMine.HighlightWord(richText, richText.SelectedText.ToString(), lineNumbersForRichText);
-                richText.Invalidate();
+                r.SetIndicator(0);
+                stackRanges.Push(r);
             }
-             */
         }
 
 
