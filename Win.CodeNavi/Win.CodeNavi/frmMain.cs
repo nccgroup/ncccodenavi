@@ -910,20 +910,27 @@ namespace Win.CodeNavi
 
         private void cmdCodeBrowser_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(txtCodePath.Text) && (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == false))
+            try
             {
-                AddAndSaveCodePath();
-                frmBrowser frmB = new frmBrowser(txtCodePath.Text, "*.*", this);
-                frmB.MdiParent = this;
-                frmB.Visible = true;
+                if (Directory.Exists(txtCodePath.Text) && (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == false))
+                {
+                    AddAndSaveCodePath();
+                    frmBrowser frmB = new frmBrowser(txtCodePath.Text, "*.*", this);
+                    frmB.MdiParent = this;
+                    frmB.Visible = true;
+                }
+                else if (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == true)
+                {
+                    MessageBox.Show("We currently don't support browsing from the root directory due to the expensive file enumeration we do when we load", "Not support", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Path '" + txtCodePath.Text + "' is not valid", "Invalid path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == true)
+            catch (Exception)
             {
-                MessageBox.Show("We currently don't support browsing from the root directory due to the expensive file enumeration we do when we load", "Not support", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Path '" + txtCodePath.Text + "' is not valid", "Invalid path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
