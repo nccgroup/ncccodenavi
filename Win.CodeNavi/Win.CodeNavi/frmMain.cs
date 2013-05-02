@@ -1458,10 +1458,5 @@ namespace Win.CodeNavi
         {
             UpdateGrepifyProfiles();
         }
-        private void cmdReloadGrepifyProfiles_Click(object sender, EventArgs e)
-        {
-            UpdateGrepifyProfiles();
-        }
-
     }
 }
