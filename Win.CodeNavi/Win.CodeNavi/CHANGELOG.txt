@@ -1,4 +1,9 @@
-﻿= Changes in 1.1 =
+﻿= Changes in 1.2 =
+
+== BUG FIXES ==
+- BUG FIX: New highlighting code was causing issues, this fixes this.
+
+= Changes in 1.1 =
 
 == FEATURES ==
 - FEATURE: New code lexer / highlighting solution based on Scintilla (which Notepad++ uses)

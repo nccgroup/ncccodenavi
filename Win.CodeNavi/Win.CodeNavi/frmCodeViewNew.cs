@@ -337,6 +337,7 @@ namespace Win.CodeNavi
 
         private void HandleSelectionChange(object sender, EventArgs e)
         {
+            if (scintilla.Selection.Text.Length == 0) return;
             // http://scintillanet.codeplex.com/discussions/53292
             this.scintilla.NativeInterface.IndicatorClearRange(0, this.scintilla.Text.Length);
 
@@ -344,7 +345,6 @@ namespace Win.CodeNavi
             foreach (Range r in scintilla.FindReplace.FindAll(scintilla.Selection.Text))
             {
                 r.SetIndicator(0);
-                stackRanges.Push(r);
             }
         }
 
