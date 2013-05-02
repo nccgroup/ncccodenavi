@@ -406,6 +406,35 @@ namespace Win.CodeNavi
             DoSearch();
         }
 
+
+        /// <summary>
+        /// Saves the code path
+        /// </summary>
+        private void AddAndSaveCodePath()
+        {
+            // So we first the new path and search term to the history
+            // we then prune the oldist
+            if (txtCodePath.Items.Count > 0 && txtCodePath.Text.Equals(txtCodePath.Items[0]) == false)
+            {
+                txtCodePath.Items.Insert(0, txtCodePath.Text);
+                if (txtCodePath.Items.Count > 20)
+                {
+                    while (txtCodePath.Items.Count > 20)
+                    {
+                        txtCodePath.Items.RemoveAt(20);
+                    }
+                }
+            }
+            // This saves the paths so they are persistent over runs
+            StringCollection strCodePathCollection = new StringCollection();
+            foreach (String strPath in txtCodePath.Items)
+            {
+                strCodePathCollection.Add(strPath);
+            }
+            Properties.Settings.Default.CodeFolders = strCodePathCollection;
+            Properties.Settings.Default.Save();
+        }
+
         /// <summary>
         /// Main search entry point
         /// </summary>
@@ -431,17 +460,10 @@ namespace Win.CodeNavi
                 }
             }
 
-            // So we first the new path and search term to the history
-            // we then prune the oldist
-            txtCodePath.Items.Insert(0,txtCodePath.Text);
-            if (txtCodePath.Items.Count > 20)
-            {
-                while (txtCodePath.Items.Count > 20)
-                {
-                    txtCodePath.Items.RemoveAt(20);
-                }
-            }
-            txtSearch.Items.Insert(0,txtSearch.Text);
+
+            AddAndSaveCodePath();
+
+            txtSearch.Items.Insert(0, txtSearch.Text);
             if (txtSearch.Items.Count > 20)
             {
                 while (txtSearch.Items.Count > 20)
@@ -449,14 +471,6 @@ namespace Win.CodeNavi
                     txtSearch.Items.RemoveAt(20);
                 }
             }
-
-            // This saves the paths so they are persistent over runs
-            StringCollection strCodePathCollection = new StringCollection();
-            foreach (String strPath in txtCodePath.Items)
-            {
-                strCodePathCollection.Add(strPath);
-            }
-            Properties.Settings.Default.CodeFolders = strCodePathCollection;
 
             // This saves the search strings so they are persistent over runs
             StringCollection strSearchStringCollection = new StringCollection();
@@ -896,9 +910,21 @@ namespace Win.CodeNavi
 
         private void cmdCodeBrowser_Click(object sender, EventArgs e)
         {
-            frmBrowser frmB = new frmBrowser(txtCodePath.Text, "*.*",this);
-            frmB.MdiParent = this;
-            frmB.Visible = true;
+            if (Directory.Exists(txtCodePath.Text) && (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == false))
+            {
+                AddAndSaveCodePath();
+                frmBrowser frmB = new frmBrowser(txtCodePath.Text, "*.*", this);
+                frmB.MdiParent = this;
+                frmB.Visible = true;
+            }
+            else if (Directory.GetDirectoryRoot(txtCodePath.Text).Equals(txtCodePath.Text) == true)
+            {
+                MessageBox.Show("We currently don't support browsing from the root directory due to the expensive file enumeration we do we we load", "Not support", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Path '" + txtCodePath.Text + "' is not valid", "Invalid path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void optIgnoreTest_Click(object sender, EventArgs e)

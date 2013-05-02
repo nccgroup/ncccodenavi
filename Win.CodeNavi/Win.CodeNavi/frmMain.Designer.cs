@@ -159,6 +159,7 @@ namespace Win.CodeNavi
             // 
             this.txtCodePath.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtCodePath.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+            this.txtCodePath.AutoToolTip = true;
             this.txtCodePath.Name = "txtCodePath";
             this.txtCodePath.Size = new System.Drawing.Size(250, 39);
             this.txtCodePath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodePath_KeyPress);
