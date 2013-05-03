@@ -25,12 +25,20 @@ namespace Win.CodeNavi
         private ListViewColumnSorter lvwColumnSorter;
         private frmMain frmMaster = null;
         private Scanner scanEngine = null;
+        private bool bIsGrepify = false;
 
-        public frmSearch(String strTerm, frmMain frmMaster)
+        public frmSearch(String strTerm, frmMain frmMaster, bool bGrepify=false)
         {
             InitializeComponent();
             this.Text = "Search Results - " + strTerm;
             this.frmMaster = frmMaster;
+            this.bIsGrepify = bGrepify;
+            if (bGrepify)
+            {
+                this.cmdGraphResults.Enabled = true;
+            } else {
+                this.cmdGraphResults.Enabled = false; // Don't let people even click the button if it's not a grepify scan
+            }
             
         }
 
@@ -342,9 +350,12 @@ namespace Win.CodeNavi
 
         private void cmdGraphResults_Click(object sender, EventArgs e)
         {
-            frmCharts thisChart = new frmCharts(this.lstResults);
-            thisChart.MdiParent = frmMaster;
-            thisChart.Show();
+            if (this.bIsGrepify)
+            {
+                frmCharts thisChart = new frmCharts(this.lstResults);
+                thisChart.MdiParent = frmMaster;
+                thisChart.Show();
+            }
         }
 
         private void cmdMark_Click(object sender, EventArgs e)

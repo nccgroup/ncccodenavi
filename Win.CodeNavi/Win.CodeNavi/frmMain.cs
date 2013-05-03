@@ -1230,7 +1230,7 @@ namespace Win.CodeNavi
             // Now do the scan
 
             // Now initalize a search (aka results) form
-            frmSearch frmSearch = new frmSearch("Grepify scan of " + txtCodePath.Text + " (Regex:True,Case:" + opCaseSearch.Checked + ",Ignore Test:" + optIgnoreTest.Checked + ",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this);
+            frmSearch frmSearch = new frmSearch("Grepify scan of " + txtCodePath.Text + " (Regex:True,Case:" + opCaseSearch.Checked + ",Ignore Test:" + optIgnoreTest.Checked + ",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this, true);
             frmSearch.AddRegexColumn(); // Adds the extra column
             frmSearch.MdiParent = this;
             frmSearch.Visible = true;
