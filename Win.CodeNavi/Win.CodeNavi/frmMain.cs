@@ -425,6 +425,11 @@ namespace Win.CodeNavi
                     }
                 }
             }
+            else
+            {
+                txtCodePath.Items.Insert(0, txtCodePath.Text);
+            }
+
             // This saves the paths so they are persistent over runs
             StringCollection strCodePathCollection = new StringCollection();
             foreach (String strPath in txtCodePath.Items)
