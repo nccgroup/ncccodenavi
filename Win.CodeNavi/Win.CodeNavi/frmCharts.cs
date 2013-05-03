@@ -60,8 +60,10 @@ namespace Win.CodeNavi
                         lstCounts.Add(1);
                     }
                 } else {
+                    /*
                     MessageBox.Show("Can't chart a non Grepify set of results","Can't chart",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.Close();
+                     */
                 }
             }
                       
