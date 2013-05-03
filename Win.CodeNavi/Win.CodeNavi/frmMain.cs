@@ -694,6 +694,15 @@ namespace Win.CodeNavi
             }
             else
             {
+                if (tabNotes.Visible == false)
+                {
+                    tabNotes.Visible = true;
+                    cmdshowNotesPanel.Checked = true;
+                    Properties.Settings.Default.ShowNotesPanel = true;
+                    Properties.Settings.Default.Save();
+                }
+
+                Properties.Settings.Default.Save();
                 String strNoteFinal = DateTime.Now + Environment.NewLine + "----------------------------------------------" + Environment.NewLine + Environment.NewLine + strNote + Environment.NewLine + Environment.NewLine;
 
                 richNotes.Text = strNoteFinal + richNotes.Text;
