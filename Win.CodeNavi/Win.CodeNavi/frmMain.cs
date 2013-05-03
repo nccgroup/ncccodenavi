@@ -698,6 +698,7 @@ namespace Win.CodeNavi
                 {
                     tabNotes.Visible = true;
                     cmdshowNotesPanel.Checked = true;
+                    tabNotes.SelectTab(0);
                     Properties.Settings.Default.ShowNotesPanel = true;
                     Properties.Settings.Default.Save();
                 }
