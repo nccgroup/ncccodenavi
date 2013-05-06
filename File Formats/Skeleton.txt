@@ -1,0 +1,11 @@
+<Grepify Version="2.0">
+
+	<Extensions></Extensions>
+	
+	<Check>
+		<Regex></Regex>
+		<Friendly></Friendly>
+		<Description></Description>
+	</Check>
+	
+</Grepify>

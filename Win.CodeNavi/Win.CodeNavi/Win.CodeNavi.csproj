@@ -106,6 +106,7 @@
     <Compile Include="frmSearchLimit.Designer.cs">
       <DependentUpon>frmSearchLimit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grepifyv2.cs" />
     <Compile Include="IniLexer.cs" />
     <Compile Include="IsText.cs" />
     <Compile Include="ListViewAntiFlicker.cs" />

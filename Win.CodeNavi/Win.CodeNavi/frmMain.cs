@@ -75,6 +75,8 @@ namespace Win.CodeNavi
                 watcher.EnableRaisingEvents = true;
             
             }
+
+            //Grepifyv2 myGrepify = new Grepifyv2(AssemblyDirectory + "\\Grepify.Profiles");
         }
 
         /// <summary>
