@@ -34,8 +34,7 @@ namespace Win.CodeNavi
         public SourceCodeMarkUp scmMine = new SourceCodeMarkUp(AssemblyDirectory);
         private Thread workerThreadV = null;
         private Thread workerThread = null;
-        private TabPage PreviousTab;
-        private bool bClosingTab = false;
+        private List<TabPage> tabStack = new List<TabPage>();
 
         static public string AssemblyDirectory
         {
@@ -1270,8 +1269,6 @@ namespace Win.CodeNavi
             //this.SuspendLayout();
             //DrawingControl.SuspendUpdate.Suspend(this);
       
-            // First set the previous TabPage
-            PreviousTab = tabForms.SelectedTab;
             // If child form is new and no has tabPage, 
             // create new tabPage 
             if (this.MdiChildren.Count() > 0)
@@ -1291,8 +1288,9 @@ namespace Win.CodeNavi
                 }
                 else
                 {
-                    //tabForms.TabPages.Clear();
+                    tabForms.SelectedTab = this.ActiveMdiChild.Tag as TabPage;
                 }
+                tabStack.Add(tabForms.SelectedTab);
             }
             else
             {
@@ -1311,26 +1309,15 @@ namespace Win.CodeNavi
         private void ActiveMdiChild_FormClosed(object sender,
                                     FormClosedEventArgs e)
         {
-            if (PreviousTab != null)
-            {
-                try
-                {
-                    bClosingTab = true;
-                    tabForms.SelectTab(PreviousTab);
-                }
-                catch (Exception) // if the previous tab isn't valid
-                {
-
-                }
-                finally
-                {
-                    tabForms.Update();
-                    bClosingTab = false;
-                }
-            }
             ActivateMdiChild(null);
+            tabStack.RemoveAll(x => x == (sender as Form).Tag as TabPage);
             ((sender as Form).Tag as TabPage).Parent = null;
             ((sender as Form).Tag as TabPage).Dispose();
+            if (tabStack.Count > 0)
+            {
+                tabStack.RemoveAt(tabStack.Count - 1);
+                tabForms.SelectedTab = tabStack.Last();
+            }
    
         }
 
@@ -1373,10 +1360,6 @@ namespace Win.CodeNavi
 
         private void tabForms_Deselected(object sender, TabControlEventArgs e)
         {
-            if (e.TabPage != null && !bClosingTab) // null probably means a tab was closed
-            {
-                PreviousTab = e.TabPage;
-            }
         }
 
         private void optAutoSaveNotes_Click(object sender, EventArgs e)
@@ -1501,8 +1484,7 @@ namespace Win.CodeNavi
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            (tabForms.SelectedTab.Tag as Form).Dispose();
+            tabStack.RemoveAll(x => x == tabForms.SelectedTab);
             try
             {
                 tabForms.SelectedTab.Dispose();
@@ -1510,6 +1492,11 @@ namespace Win.CodeNavi
             catch (Exception)
             {
 
+            }
+            if (tabStack.Count > 0)
+            {
+                tabStack.RemoveAt(tabStack.Count - 1);
+                tabForms.SelectedTab = tabStack.Last();
             }
             tabForms.Invalidate();
         }
