@@ -8,3 +8,4 @@
 - Update Version.Check/Version.text to reflect the file / assembley version
 - Commit
 - Test that the new binaries aren't flagging a new version
+- Tag commit with release version
