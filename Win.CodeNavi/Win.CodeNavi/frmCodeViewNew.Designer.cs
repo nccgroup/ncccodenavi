@@ -57,28 +57,11 @@ namespace Win.CodeNavi
             this.cmdNextBookmark = new System.Windows.Forms.ToolStripButton();
             this.cmdDeleteBookmarks = new System.Windows.Forms.ToolStripButton();
             this.scintilla = new ScintillaNET.Scintilla();
-            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
+            this.cmdCopyFilename = new System.Windows.Forms.ToolStripButton();
             this.ctxCodeView.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scintilla)).BeginInit();
             this.SuspendLayout();
-            // 
-            // scintilla
-            // 
-            this.scintilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.scintilla.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
-            this.scintilla.Size = new System.Drawing.Size(892, 330);
-            this.scintilla.Location = new System.Drawing.Point(3, 47);
-            this.scintilla.Margins.Margin1.AutoToggleMarkerNumber = 0;
-            this.scintilla.Margins.Margin1.IsClickable = true;
-            this.scintilla.Margins.Margin2.Width = 16;
-            this.scintilla.Name = "_scintilla";
-            this.scintilla.TabIndex = 0;
-            this.scintilla.StyleNeeded += new System.EventHandler<ScintillaNET.StyleNeededEventArgs>(this.scintilla_StyleNeeded);
-            this.scintilla.SelectionChanged += new System.EventHandler(this.HandleSelectionChange);
-            this.scintilla.ContextMenuStrip = this.ctxCodeView;
-            //this.scintilla
             // 
             // ctxCodeView
             // 
@@ -138,13 +121,8 @@ namespace Win.CodeNavi
             this.cmdBookmark,
             this.cmdPreviousBookMark,
             this.cmdNextBookmark,
-            this.cmdDeleteBookmarks});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(898, 39);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.cmdDeleteBookmarks,
+            this.cmdCopyFilename});
             // 
             // cmdCopy
             // 
@@ -234,6 +212,34 @@ namespace Win.CodeNavi
             this.cmdDeleteBookmarks.Text = "Delete all bookmarks";
             this.cmdDeleteBookmarks.Click += new System.EventHandler(this.cmdDeleteBookmarks_Click);
             // 
+            // scintilla
+            // 
+            this.scintilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scintilla.ContextMenuStrip = this.ctxCodeView;
+            this.scintilla.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
+            this.scintilla.Location = new System.Drawing.Point(3, 47);
+            this.scintilla.Margins.Margin1.AutoToggleMarkerNumber = 0;
+            this.scintilla.Margins.Margin1.IsClickable = true;
+            this.scintilla.Margins.Margin2.Width = 16;
+            this.scintilla.Name = "scintilla";
+            this.scintilla.Size = new System.Drawing.Size(892, 330);
+            this.scintilla.TabIndex = 0;
+            this.scintilla.SelectionChanged += new System.EventHandler(this.HandleSelectionChange);
+            this.scintilla.StyleNeeded += new System.EventHandler<ScintillaNET.StyleNeededEventArgs>(this.scintilla_StyleNeeded);
+            // 
+            // cmdCopyFilename
+            // 
+            this.cmdCopyFilename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cmdCopyFilename.Image = ((System.Drawing.Image)(resources.GetObject("cmdCopyFilename.Image")));
+            this.cmdCopyFilename.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cmdCopyFilename.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cmdCopyFilename.Name = "cmdCopyFilename";
+            this.cmdCopyFilename.Size = new System.Drawing.Size(36, 36);
+            this.cmdCopyFilename.Text = "Coyp filename to clipboard";
+            this.cmdCopyFilename.Click += new System.EventHandler(this.cmdCopyFilename_Click);
+            // 
             // frmCodeViewNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +283,6 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStripButton cmdPreviousBookMark;
         private System.Windows.Forms.ToolStripButton cmdNextBookmark;
         private System.Windows.Forms.ToolStripButton cmdDeleteBookmarks;
+        private System.Windows.Forms.ToolStripButton cmdCopyFilename;
     }
 }

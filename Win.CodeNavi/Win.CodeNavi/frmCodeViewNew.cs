@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using ScintillaNET;
 using System.Collections;
+using System.Windows;
 
 namespace Win.CodeNavi
 {
@@ -358,11 +359,6 @@ namespace Win.CodeNavi
             frmMaster.SendToNotes(strNote.ToString());
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void cmdBookmark_Click(object sender, EventArgs e)
         {
             Line currentLine = this.Scintilla.Lines.Current;
@@ -391,6 +387,12 @@ namespace Win.CodeNavi
         private void cmdDeleteBookmarks_Click(object sender, EventArgs e)
         {
             this.Scintilla.Markers.DeleteAll(0);
+        }
+        
+        private void cmdCopyFilename_Click(object sender, EventArgs e)
+        {
+            // Full namespace as conflicts with Scintilla.Clipboard otherwise
+            System.Windows.Forms.Clipboard.SetData(DataFormats.Text, strFilePath);
         }
  
     }
