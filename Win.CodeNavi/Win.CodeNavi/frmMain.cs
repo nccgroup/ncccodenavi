@@ -1144,6 +1144,9 @@ namespace Win.CodeNavi
 
         private void cmdGrepifyScan_Click(object sender, EventArgs e)
         {
+            Grepifyv2 grepifyV2 = null;
+            List<String> lstV2Filenames = new List<String>();
+
             // Error checking
             if (Directory.Exists(txtCodePath.Text) == false) // does the directory exist?
             {
@@ -1175,14 +1178,15 @@ namespace Win.CodeNavi
                     intProfileCount++;
 
                     string strFilename = AssemblyDirectory + "\\Grepify.Profiles\\" + tsiTarget.Text + ".txt";
+                    string strv2Filename = AssemblyDirectory + "\\Grepify.Profiles\\" + tsiTarget.Text + ".grepifyv2";
 
                     // Load the file
-                    if (!File.Exists(strFilename))
+                    if (!File.Exists(strFilename) && !File.Exists(strv2Filename))
                     {
-                        MessageBox.Show("File " + strFilename + " does not exist. Aborting scan!", "File does not exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("File " + strFilename + " or " + strv2Filename + " does not exist. Aborting scan!", "File does not exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                    else
+                    else if(File.Exists(strFilename)) // v1 fileformat
                     {
                         try
                         {
@@ -1193,44 +1197,54 @@ namespace Win.CodeNavi
                             MessageBox.Show("File " + strFilename + " could not be read. Aborting scan!", "Could not read file", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return;
                         }
-                    }
 
-                    // Sanity check the regex
-                    int intCount = 0;
-                    foreach (string strRegex in strNewLines)
-                    {
-
-                        intCount++;
-
-                        if (strRegex.StartsWith("#")) continue;
-
-                        try
+                        // Sanity check the regex of v1 files
+                        int intCount = 0;
+                        foreach (string strRegex in strNewLines)
                         {
-                            Match regexMatch = Regex.Match("Mooo", strRegex);
-                            strRegexs.Add(strRegex);
+
+                            intCount++;
+
+                            if (strRegex.StartsWith("#")) continue;
+
+                            try
+                            {
+                                Match regexMatch = Regex.Match("Mooo", strRegex);
+                                strRegexs.Add(strRegex);
+                            }
+                            catch (ArgumentException rExcp)
+                            {
+                                MessageBox.Show("Regex looks broken on line " + intCount + ". Regex is '" + strRegex + "'. Error is '" + rExcp.Message + "' in file " + strFilename + ".", "Regex error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                profileLines = null;
+                                bError = true;
+                                break;
+                            }
                         }
-                        catch (ArgumentException rExcp)
+
+                        if (profileLines == null && bError == false)
                         {
-                            MessageBox.Show("Regex looks broken on line " + intCount + ". Regex is '" + strRegex + "'. Error is '" + rExcp.Message + "' in file " + strFilename + ".", "Regex error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            profileLines = null;
-                            bError = true;
-                            break;
+                            profileLines = strRegexs.ToArray();
                         }
+                        else if (bError == false)
+                        {
+                            profileLines = profileLines.Concat(strRegexs).ToArray();
+                        }
+                    }
+                    else if (File.Exists(strv2Filename))
+                    {
+                        lstV2Filenames.Add(strv2Filename);
                     }
 
-                    if (profileLines == null && bError == false)
+                    if (lstV2Filenames.Count > 0)
                     {
-                        profileLines = strRegexs.ToArray();
+                        grepifyV2 = new Grepifyv2(lstV2Filenames);
                     }
-                    else if (bError == false)
-                    {
-                        profileLines = profileLines.Concat(strRegexs).ToArray();
-                    }
+
                 }
             }
 
 
-            if (intProfileCount == 0 || profileLines == null)
+            if ((intProfileCount == 0 || profileLines == null) && (grepifyV2 == null || grepifyV2.CheckCount() == 0))
             {
                 if (intProfileCount == 0)
                 {

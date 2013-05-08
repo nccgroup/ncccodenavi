@@ -38,7 +38,7 @@ namespace Win.CodeNavi
     class Grepifyv2File 
     {
         public string strExts = null;
-        List<Grepifyv2Check> myChecks = new List<Grepifyv2Check>();
+        public List<Grepifyv2Check> myChecks = new List<Grepifyv2Check>();
 
         // Constructor
         public Grepifyv2File(String strFile) 
@@ -95,12 +95,45 @@ namespace Win.CodeNavi
     {
         public List<Grepifyv2File> myFiles = new List<Grepifyv2File>();
 
+        public int CheckCount()
+        {
+            int intCount = 0;
+            try{
+                foreach (Grepifyv2File gv2File in myFiles)
+                {
+                    intCount += gv2File.myChecks.Count();
+                }
+            
+            } catch(Exception){
+
+            }
+
+            return intCount;
+        }
+
         // Constructor
         public Grepifyv2(String strDirectory)
         {
             Console.WriteLine("Grepify v2");
 
             foreach (String fileXML in Directory.GetFiles(strDirectory,"*.grepifyv2"))
+            {
+                try
+                {
+                    Grepifyv2File grepv2File = new Grepifyv2File(fileXML);
+                    myFiles.Add(grepv2File);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        public Grepifyv2(List<String> strFilenames)
+        {
+
+            foreach (String fileXML in strFilenames)
             {
                 try
                 {
