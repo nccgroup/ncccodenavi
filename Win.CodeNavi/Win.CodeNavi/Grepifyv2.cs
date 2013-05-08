@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Win.CodeNavi
 {
@@ -81,7 +83,16 @@ namespace Win.CodeNavi
                 // We need them all
                 if (myCheck.strRegex != null && myCheck.strName != null && myCheck.strDescription != null)
                 {
-                    myChecks.Add(myCheck);
+                    // Check the regex is valid before adding it
+                    try
+                    {
+                        Match regexMatch = Regex.Match("Mooo", myCheck.strRegex);
+                        myChecks.Add(myCheck);
+                    }
+                    catch (ArgumentException rExcp)
+                    {
+                        MessageBox.Show("Regex looks broken, Regex is '" + myCheck.strRegex + "'. Error is '" + rExcp.Message + "' in file " + strFile + ".", "Regex error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

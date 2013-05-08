@@ -1252,6 +1252,7 @@ namespace Win.CodeNavi
                 }
                 else
                 {
+                    Console.WriteLine(grepifyV2.CheckCount());
                     MessageBox.Show("No Grepify regexes in selected files. Aborting scan!", "No Grepify regexes in selected files", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 return;
