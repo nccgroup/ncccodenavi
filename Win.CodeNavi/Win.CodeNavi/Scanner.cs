@@ -390,6 +390,7 @@ namespace Win.CodeNavi
             this.bComments = bComments;
             this.bIgnoreTest = bIgnoreTest;
             this.strExRegex = strExRegex;
+
             this.strExts = strExtsText.Split(';'); // has already been error checked before getting here
 
             try

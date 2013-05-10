@@ -124,6 +124,36 @@ namespace Win.CodeNavi
             return intCount;
         }
 
+        public string GetExts()
+        {
+            StringBuilder strExts = new StringBuilder();
+            
+            try
+            {
+                foreach (Grepifyv2File gv2File in myFiles)
+                {
+                    if(strExts.Length == 0){
+                        strExts.Append(gv2File.strExts);
+                    } else {
+                        strExts.Append(";" + gv2File.strExts);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            if (strExts.Length > 0)
+            {
+                return strExts.ToString();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public List<Grepifyv2Check> GetChecks()
         {
 

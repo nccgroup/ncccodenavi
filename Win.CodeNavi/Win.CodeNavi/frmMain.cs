@@ -1259,7 +1259,7 @@ namespace Win.CodeNavi
                 return;
             }
 
-
+            // Get the grepify V2 checks if needed
             try
             {
                 grepifyV2Checks = grepifyV2.GetChecks();
@@ -1269,16 +1269,32 @@ namespace Win.CodeNavi
 
             }
 
-            // Now do the scan
+            // Now try concatinate the extensions that the user supplied and that are required to satisfy any v2 profiles
+            string strv2Exts = null;
+
+            try
+            {
+                strv2Exts = grepifyV2.GetExts();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            string strv1Exts = txtExt.Text;
+            if (strv2Exts != null)
+            {
+                strv1Exts = new StringBuilder().Append(strv1Exts + ";" + strv2Exts).ToString();
+            }
 
             // Now initalize a search (aka results) form
-            frmSearch frmSearch = new frmSearch("Grepify scan of " + txtCodePath.Text + " (Regex:True,Case:" + opCaseSearch.Checked + ",Ignore Test:" + optIgnoreTest.Checked + ",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this, true);
+            frmSearch frmSearch = new frmSearch("Grepify scan of " + txtCodePath.Text + " (Regex:True,Case:" + opCaseSearch.Checked + ",Ignore Test:" + optIgnoreTest.Checked + ",Ignore Comments:" + optIgnoreComments.Checked + ") - " + strv1Exts, this, true);
             frmSearch.AddRegexColumns(); // Adds the extra columns
             frmSearch.MdiParent = this;
             frmSearch.Visible = true;
 
             // Now initialize the object and start a scan
-            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, profileLines, grepifyV2Checks, optIgnoreComments.Checked, true, opCaseSearch.Checked, optIgnoreTest.Checked, txtExt.Text, richExclusions.Lines);
+            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, profileLines, grepifyV2Checks, optIgnoreComments.Checked, true, opCaseSearch.Checked, optIgnoreTest.Checked, strv1Exts, richExclusions.Lines);
             frmSearch.SetScanEngine(scanYoink);
             scanYoink.Start(this, frmSearch);
 
