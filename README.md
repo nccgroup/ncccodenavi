@@ -49,4 +49,4 @@ Features
 
 Screen Shot
 -----------
-![ScreenShot](https://raw.github.com/nccgroup/ncccodenavi/master/Win.CodeNavi/Screenshots/NCCCodeNavi.png)
+![ScreenShot](https://raw.github.com/nccgroup/ncccodenavi/master/Win.CodeNavi/Screenshots/NCCCodeNavi1Dot3.png)
