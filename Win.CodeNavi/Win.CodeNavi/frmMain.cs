@@ -1522,7 +1522,14 @@ namespace Win.CodeNavi
             if (tabStack.Count > 0)
             {
                 tabStack.RemoveAt(tabStack.Count - 1);
-                tabForms.SelectedTab = tabStack.Last();
+                try
+                {
+                    tabForms.SelectedTab = tabStack.Last();
+                }
+                catch (Exception)
+                {
+                    tabForms.SelectedTab = null;
+                }
             }
             tabForms.Invalidate();
         }
