@@ -47,9 +47,9 @@ namespace Win.CodeNavi
             
             foreach(ListViewItem lstItem in this.lstResults.Items){
                 
-                if (lstItem.SubItems.Count == 6)
+                if (lstItem.SubItems.Count > 6)
                 {
-                    string strTemp = lstItem.SubItems[5].Text.Replace("\\s*", "").Replace("\\s", "").Replace("\\(", "");
+                    string strTemp = lstItem.SubItems[6].Text.Replace("\\s*", "").Replace("\\s", "").Replace("\\(", "");
 
 
                     if (lstNames.Contains(strTemp))
