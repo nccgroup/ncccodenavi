@@ -125,12 +125,12 @@ namespace Win.CodeNavi
 
         }
 
-        public void UpdateList(string strPath, string strFile, string strExt, int intLineNumber, string strLine, string strRegex)
+        public void UpdateList(string strPath, string strFile, string strExt, int intLineNumber, string strLine, string strRegex, Grepifyv2Check gv2Check)
         {
 
             if (this.InvokeRequired)
             {
-                lstResults.Invoke(new MethodInvoker(() => { UpdateList(strPath, strFile, strExt, intLineNumber, strLine,strRegex); }));
+                lstResults.Invoke(new MethodInvoker(() => { UpdateList(strPath, strFile, strExt, intLineNumber, strLine,strRegex, gv2Check); }));
             }
             else
             {
@@ -141,23 +141,56 @@ namespace Win.CodeNavi
                 itemNew.SubItems.Add(strExt);
                 itemNew.SubItems.Add(intLineNumber.ToString());
                 itemNew.SubItems.Add(strLine);
-                itemNew.SubItems.Add(strRegex);
+                if (strRegex != null) // V1
+                {
+                    itemNew.SubItems.Add("v1");
+                    itemNew.SubItems.Add(strRegex);
+                }
+                else // V2
+                {
+                    itemNew.SubItems.Add("v2");
+                    itemNew.SubItems.Add(gv2Check.strRegex);
+                    itemNew.SubItems.Add(gv2Check.strName);
+                    itemNew.SubItems.Add(gv2Check.strDescription);
+
+                }
 
                 lstResults.Items.Add(itemNew);
             }
 
         }
 
-        public void AddRegexColumn()
+        public void AddRegexColumns()
         {
             if (this.InvokeRequired)
             {
-                lstResults.Invoke(new MethodInvoker(() => { AddRegexColumn(); }));
+                lstResults.Invoke(new MethodInvoker(() => { AddRegexColumns(); }));
             }
             else
             {
                 ColumnHeader colHdr = new ColumnHeader();
+                colHdr.Text = "Grepify Version";
+                colHdr.Width = 50;
+
+                this.Width = this.Width + 50;
+                lstResults.Columns.Add(colHdr);
+
+                colHdr = new ColumnHeader();
                 colHdr.Text = "Grepify Regex";
+                colHdr.Width = 150;
+
+                this.Width = this.Width + 150;
+                lstResults.Columns.Add(colHdr);
+
+                colHdr = new ColumnHeader();
+                colHdr.Text = "Grepify Name";
+                colHdr.Width = 150;
+
+                this.Width = this.Width + 150;
+                lstResults.Columns.Add(colHdr);
+
+                colHdr = new ColumnHeader();
+                colHdr.Text = "Grepify Description";
                 colHdr.Width = 150;
 
                 this.Width = this.Width + 150;

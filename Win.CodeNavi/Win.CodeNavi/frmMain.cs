@@ -1146,6 +1146,7 @@ namespace Win.CodeNavi
         {
             Grepifyv2 grepifyV2 = null;
             List<String> lstV2Filenames = new List<String>();
+            List<Grepifyv2Check> grepifyV2Checks = null;
 
             // Error checking
             if (Directory.Exists(txtCodePath.Text) == false) // does the directory exist?
@@ -1258,16 +1259,26 @@ namespace Win.CodeNavi
                 return;
             }
 
+
+            try
+            {
+                grepifyV2Checks = grepifyV2.GetChecks();
+            }
+            catch (Exception)
+            {
+
+            }
+
             // Now do the scan
 
             // Now initalize a search (aka results) form
             frmSearch frmSearch = new frmSearch("Grepify scan of " + txtCodePath.Text + " (Regex:True,Case:" + opCaseSearch.Checked + ",Ignore Test:" + optIgnoreTest.Checked + ",Ignore Comments:"+ optIgnoreComments.Checked+") - " + txtExt.Text, this, true);
-            frmSearch.AddRegexColumn(); // Adds the extra column
+            frmSearch.AddRegexColumns(); // Adds the extra columns
             frmSearch.MdiParent = this;
             frmSearch.Visible = true;
 
             // Now initialize the object and start a scan
-            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, profileLines, optIgnoreComments.Checked, true, opCaseSearch.Checked, optIgnoreTest.Checked, txtExt.Text,richExclusions.Lines);
+            Scanner scanYoink = new Scanner(frmSearch, txtCodePath.Text, profileLines, grepifyV2Checks, optIgnoreComments.Checked, true, opCaseSearch.Checked, optIgnoreTest.Checked, txtExt.Text, richExclusions.Lines);
             frmSearch.SetScanEngine(scanYoink);
             scanYoink.Start(this, frmSearch);
 

@@ -23,14 +23,15 @@ namespace Win.CodeNavi
     /// <summary>
     /// Class for each check
     /// </summary>
-    class Grepifyv2Check
+    public class Grepifyv2Check
     {
         public string strName = null;
         public string strDescription = null;
         public string strRegex = null;
-        
-        public Grepifyv2Check(){
+        public string strExts = null;
 
+        public Grepifyv2Check(string strExts){
+            this.strExts = strExts;
         }
     }
 
@@ -61,7 +62,7 @@ namespace Win.CodeNavi
             XmlNodeList xmlChecks = xmlDoc.GetElementsByTagName("Check");
 
             foreach(XmlNode xmlNode in xmlChecks){
-                Grepifyv2Check myCheck = new Grepifyv2Check();
+                Grepifyv2Check myCheck = new Grepifyv2Check(strExts);
 
                 foreach (XmlNode xmlSubNode in xmlNode.ChildNodes)
                 {
@@ -94,6 +95,7 @@ namespace Win.CodeNavi
                         MessageBox.Show("Regex looks broken, Regex is '" + myCheck.strRegex + "'. Error is '" + rExcp.Message + "' in file " + strFile + ".", "Regex error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
             }
         }
 
@@ -120,6 +122,32 @@ namespace Win.CodeNavi
             }
 
             return intCount;
+        }
+
+        public List<Grepifyv2Check> GetChecks()
+        {
+
+            if (CheckCount() == 0) return null;
+
+            List<Grepifyv2Check> lstMaster = new List<Grepifyv2Check>();
+
+            try
+            {
+                foreach (Grepifyv2File gv2File in myFiles)
+                {
+                    foreach (Grepifyv2Check gCheck in gv2File.myChecks)
+                    {
+                        lstMaster.Add(gCheck);
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+            return lstMaster;
         }
 
         // Constructor

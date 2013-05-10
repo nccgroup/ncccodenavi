@@ -31,6 +31,7 @@ namespace Win.CodeNavi
         private frmSearch frmSearch = null;
         private string strTerm = null;
         private string[] strAPIs = null;
+        List<Grepifyv2Check> lstChecks = null;
         private bool bCase = true;
         private bool bRegex = false;
         private bool bComments = false;
@@ -98,47 +99,109 @@ namespace Win.CodeNavi
 
                         if (bComments != true || commentregexMatch == null || (commentregexMatch != null && commentregexMatch.Success == false))
                         {
-                            if (strAPIs != null) // We're doing a grepify scan
+                            if (strAPIs != null || lstChecks != null) // We're doing a grepify scan
                             {
-                                foreach (string strRegex in strAPIs)
+                                // V1
+                                if (strAPIs != null)
                                 {
-                                    if (engineLocal.bStopped == true)
+                                    foreach (string strRegex in strAPIs)
                                     {
-                                        engineLocal.LowerQueueCount();
-                                        return false;
-                                    }
-                                    else
-                                    {
-
-                                        Match regexMatch = null;
-                                        if (bCase == false)
+                                        if (engineLocal.bStopped == true)
                                         {
-                                            regexMatch = Regex.Match(strLine, strRegex, RegexOptions.IgnoreCase);
+                                            engineLocal.LowerQueueCount();
+                                            return false;
                                         }
                                         else
                                         {
-                                            regexMatch = Regex.Match(strLine, strRegex);
-                                        }
 
-
-                                        if (regexMatch != null && regexMatch.Success)
-                                        {
-                                            if (frmSearch.IsDisposed == false) frmSearch.UpdateList(fInfo.DirectoryName, fInfo.Name, fInfo.Extension, intCount, strLine, strRegex);
-                                            lock (engineLocal.objCount)
+                                            Match regexMatch = null;
+                                            if (bCase == false)
                                             {
-                                                engineLocal.intFinds++;
-                                                if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
+                                                regexMatch = Regex.Match(strLine, strRegex, RegexOptions.IgnoreCase);
+                                            }
+                                            else
+                                            {
+                                                regexMatch = Regex.Match(strLine, strRegex);
+                                            }
+
+
+                                            if (regexMatch != null && regexMatch.Success)
+                                            {
+                                                if (frmSearch.IsDisposed == false) frmSearch.UpdateList(fInfo.DirectoryName, fInfo.Name, fInfo.Extension, intCount, strLine, strRegex, null);
+                                                lock (engineLocal.objCount)
                                                 {
-                                                    MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    engineLocal.intFinds++;
+                                                    if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
+                                                    {
+                                                        MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    }
                                                 }
                                             }
                                         }
+
+
                                     }
+                                }
 
 
+                                // V2
+                                if (lstChecks != null)
+                                {
+                                    foreach (Grepifyv2Check gv2Check in lstChecks)
+                                    {
+                                        string[] strExts = gv2Check.strExts.Split(';');
+                                        bool bFound = false;
+
+                                        foreach(string strExt in strExts){
+                                            try
+                                            {
+                                                if (Path.GetExtension(strFile).EndsWith(strExt.Split('.')[1]) == true) bFound = true;
+                                            }
+                                            catch (Exception)
+                                            {
+
+                                            }
+                                        }
+
+                                        
+                                        if (engineLocal.bStopped == true)
+                                        {
+                                            engineLocal.LowerQueueCount();
+                                            return false;
+                                        }
+                                        else if(bFound == true)
+                                        {
+
+                                            Match regexMatch = null;
+                                            if (bCase == false)
+                                            {
+                                                regexMatch = Regex.Match(strLine, gv2Check.strRegex, RegexOptions.IgnoreCase);
+                                            }
+                                            else
+                                            {
+                                                regexMatch = Regex.Match(strLine, gv2Check.strRegex);
+                                            }
+
+
+                                            if (regexMatch != null && regexMatch.Success)
+                                            {
+                                                if (frmSearch.IsDisposed == false) frmSearch.UpdateList(fInfo.DirectoryName, fInfo.Name, fInfo.Extension, intCount, strLine, null, gv2Check);
+                                                lock (engineLocal.objCount)
+                                                {
+                                                    engineLocal.intFinds++;
+                                                    if (engineLocal.intFinds == Properties.Settings.Default.MaxResults)
+                                                    {
+                                                        MessageBox.Show("Maximum results found stopping scan", "Stopping scan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                    }
                                 }
                             }
-                            else if (bRegex == true && strAPIs == null) // Standard term search but with regex
+                            else if (bRegex == true && strAPIs == null && lstChecks == null) // Standard term search but with regex
                             {
                                 Match regexMatch = null;
                                 if (bCase == false)
@@ -234,6 +297,7 @@ namespace Win.CodeNavi
             this.frmSearch = scanEngine.frmSearch;
             this.engineLocal = scanEngine;
             this.strCommentsRegex = scanEngine.strCommentsRegex;
+            this.lstChecks = scanEngine.lstChecks;
         }
 
         // Wrapper method for use with thread pool.
@@ -271,6 +335,7 @@ namespace Win.CodeNavi
         private static int intQueue;
         string[] strExts = null;
         public string[] strAPIs = null;
+        public List<Grepifyv2Check> lstChecks = null;
         public int intFinds = 0;
 
         /// <summary>
@@ -314,17 +379,19 @@ namespace Win.CodeNavi
             }
         }
 
-        public Scanner(frmSearch frmSearch, String strPath, string[] strAPIs, Boolean bComments, Boolean bRegex, Boolean bCase, Boolean bIgnoreTest, String strExtsText, string[] strExRegex)
+        public Scanner(frmSearch frmSearch, String strPath, string[] strAPIs, List<Grepifyv2Check> lstChecks, Boolean bComments, Boolean bRegex, Boolean bCase, Boolean bIgnoreTest, String strExtsText, string[] strExRegex)
         {
             this.frmSearch = frmSearch;
             this.strPath = strPath;
             this.strAPIs = strAPIs;
+            this.lstChecks = lstChecks;
             this.bRegex = bRegex;
             this.bCase = bCase;
             this.bComments = bComments;
             this.bIgnoreTest = bIgnoreTest;
             this.strExRegex = strExRegex;
             this.strExts = strExtsText.Split(';'); // has already been error checked before getting here
+
             try
             {
                 this.strCommentsRegex = File.ReadAllLines(frmMain.AssemblyDirectory + "\\Grepify.Comments\\Comments.grepify");
