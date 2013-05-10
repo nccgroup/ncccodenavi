@@ -727,7 +727,8 @@ namespace Win.CodeNavi
             this.ctxTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem});
             this.ctxTab.Name = "ctxTab";
-            this.ctxTab.Size = new System.Drawing.Size(104, 26);
+            this.ctxTab.Size = new System.Drawing.Size(153, 48);
+            this.ctxTab.Opening += new System.ComponentModel.CancelEventHandler(this.ctxTab_Opening);
             // 
             // closeToolStripMenuItem
             // 

@@ -1527,14 +1527,19 @@ namespace Win.CodeNavi
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabStack.RemoveAll(x => x == tabForms.SelectedTab);
+
             try
             {
-                tabForms.SelectedTab.Dispose();
+                TabPage tabMe = tabForms.SelectedTab;
+                Form frmMe = (tabForms.SelectedTab.Tag as Form);
+                frmMe.Close();
+                tabMe.Dispose();
             }
             catch (Exception)
             {
 
             }
+
             if (tabStack.Count > 0)
             {
                 tabStack.RemoveAt(tabStack.Count - 1);
@@ -1595,6 +1600,11 @@ namespace Win.CodeNavi
         }
 
         private void richNotes_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctxTab_Opening(object sender, CancelEventArgs e)
         {
 
         }
