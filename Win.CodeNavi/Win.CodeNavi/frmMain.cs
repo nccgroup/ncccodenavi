@@ -1357,8 +1357,23 @@ namespace Win.CodeNavi
             ((sender as Form).Tag as TabPage).Dispose();
             if (tabStack.Count > 0)
             {
+                tabForms.SelectedTab = null;
+
                 tabStack.RemoveAt(tabStack.Count - 1);
-                tabForms.SelectedTab = tabStack.Last();
+
+                while (tabForms.SelectedTab == null)
+                {    
+                    try
+                    {
+                        tabForms.SelectedTab = tabStack.Last();
+
+                    }
+                    catch (Exception)
+                    {
+                        if (tabStack.Count == 0) break;
+                        else tabStack.Remove(tabStack.Last());
+                    }
+                }
             }
    
         }

@@ -1,0 +1,185 @@
+<Grepify Version="2.0">
+
+	<Extensions>*.cpp;*.hpp;*.c;*.h;*.cxx;*.hxx;*.cc;*.hh</Extensions>
+  	
+	<Check>
+		<Regex>(^|\W)l?(s|S)tr(c|C)py(n|N)?[AW]?\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)(_f)?(s|S)tr(n|N)(c|C)py[AW]?\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>
+	
+	<Check>
+		<Regex>(^|\W)w?v?sprintf[AW]?\s*\(</Regex>
+		<Friendly>sprintf family</Friendly>
+		<Description>This is a member of the sprintf family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sprintf_s, and the String*Printf and String*PrintfEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)v?swprintf\s*\(</Regex>
+		<Friendly>sprintf family</Friendly>
+		<Description>This is a member of the sprintf family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sprintf_s, and the String*Printf and String*PrintfEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)l?(s|S)tr(c|C)at(n|N)?A?W?\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Catand String*CatEx functions.</Description>
+	</Check>
+	
+	<Check>
+		<Regex>(^|\W)l?(s|S)tr(n|N)(c|C)atA?W?\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Catand String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)StrCatBuffA?W?\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Catand String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)StrCatChainW\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Catand String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)w?memcpy\s*\(</Regex>
+		<Friendly>memcpy family</Friendly>
+		<Description>This is a member of the memcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are memcpy_s and wmemcpy_s.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_v?stprintf\s*\(</Regex>
+		<Friendly>sprintf family</Friendly>
+		<Description>This is a member of the sprintf family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sprintf_s, and the String*Printf and String*PrintfEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)RtlCopyMemory\s*\(</Regex>
+		<Friendly>memcpy family</Friendly>
+		<Description>This is a member of the memcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are memcpy_s and wmemcpy_s.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)CopyMemory\s*\(</Regex>
+		<Friendly>memcpy family</Friendly>
+		<Description>This is a member of the memcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are memcpy_s and wmemcpy_s.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_fstrncat\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Cat and String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)gets\s*\(</Regex>
+		<Friendly>gets family</Friendly>
+		<Description>This is a member of the gets family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are gets_s, and the String*Gets functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_mb(s|c)n?b?cpy\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_mb(s|c)n?b?cat\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Cat and String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_tcs?n?cpy\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)_tcs?n?cat\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Cat and String*CatEx functions.</Description>
+	</Check>
+	
+	<Check>
+		<Regex>(^|\W)wcsn?cpy\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)wcsn?cat\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Cat and String*CatEx functions.</Description>
+	</Check>
+	
+	<Check>
+		<Regex>(^|\W)_ftcscpy\s*\(</Regex>
+		<Friendly>strcpy family</Friendly>
+		<Description>This is a member of the strcpy family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcpy_s, and the String*Copy and String*CopyEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_ftcscat\s*\(</Regex>
+		<Friendly>strcat family</Friendly>
+		<Description>This is a member of the strcat family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strcat_s, and the String*Cat and String*CatEx functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_getts\s*\(</Regex>
+		<Friendly>gets family</Friendly>
+		<Description>This is a member of the gets family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are gets_s, and the String*Gets functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)_gettws\s*\(</Regex>
+		<Friendly>gets family</Friendly>
+		<Description>This is a member of the gets family, banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are gets_s, and the String*Gets functions.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadWritePtr\s*\(</Regex>
+		<Friendly>IsBadWritePtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadHugeWritePtr\s*\(</Regex>
+		<Friendly>IsBadHugeWritePtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadReadPtr\s*\(</Regex>
+		<Friendly>IsBadReadPtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadHugeReadPtr\s*\(</Regex>
+		<Friendly>IsBadHugeReadPtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadCodePtr\s*\(</Regex>
+		<Friendly>IsBadCodePtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+	<Check>
+		<Regex>(^|\W)IsBadStringPtr\s*\(</Regex>
+		<Friendly>IsBadStringPtr function</Friendly>
+		<Description>This function is banned under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx), and there are no suggested secure alternatives.</Description>
+	</Check>	
+	
+</Grepify>

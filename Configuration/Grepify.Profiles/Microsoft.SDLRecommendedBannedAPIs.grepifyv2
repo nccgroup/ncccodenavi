@@ -1,0 +1,83 @@
+<Grepify Version="2.0">
+
+	<Extensions>*.cpp;*.hpp;*.c;*.h;*.cxx;*.hxx;*.cc;*.hh</Extensions>
+	
+	<Check>
+		<Regex>(^|\W)w?v?nsprintf(A|W)?\s*\(</Regex>
+		<Friendly>sprintf family</Friendly>
+		<Description>This is a member of the sprintf family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sprintf_s, and the String*Printf and String*PrintfEx functions.</Description>
+	</Check>
+	
+	<Check>
+		<Regex>(^|\W)_?v?sn(w|t)?printf\s*\(</Regex>
+		<Friendly>sprintf family</Friendly>
+		<Description>This is a member of the sprintf family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sprintf_s, and the String*Printf and String*PrintfEx functions.</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)_?(t|w)?makepath\s*\(</Regex>
+		<Friendly>makepath family</Friendly>
+		<Description>This is a member of the makepath family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is _makepath_s.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)_(t|w)?splitpath\s*\(</Regex>
+		<Friendly>splitpath family</Friendly>
+		<Description>This is a member of the splitpath family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is _splitpath_s.</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)_?s?n?(w|t)?scanf\s*\(</Regex>
+		<Friendly>scanf family</Friendly>
+		<Description>This is a member of the scanf family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are sscanf_s and _snscanf_s.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)ChangeWindowMessageFilter\s*\(</Regex>
+		<Friendly>ChangeWindowMessageFilter function</Friendly>
+		<Description>This function is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx).</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)OemToChar(A|W)?\s*\(</Regex>
+		<Friendly>OemToChar family</Friendly>
+		<Description>This is a member of the OemToChar family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is WideCharToMultiByte.</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)CharToOem(Buff)?(A|W)?\s*\(</Regex>
+		<Friendly>CharToOem family</Friendly>
+		<Description>This is a member of the CharToOem family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is WideCharToMultiByte.</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)_?alloca\s*\(</Regex>
+		<Friendly>alloca family</Friendly>
+		<Description>This is a member of the alloca family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is SafeAllocA.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)(str|_tcs|wcs|_mbs)tok\s*\(</Regex>
+		<Friendly>strtok family</Friendly>
+		<Description>This is a member of the strtok family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternative is strtok_s.</Description>
+	</Check>
+		
+	<Check>
+		<Regex>(^|\W)(l|_mb)?strlen\s*\(</Regex>
+		<Friendly>strlen family</Friendly>
+		<Description>This is a member of the strlen family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strnlen_s, and the String*Length functions.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)(wc|_mb)?slen\s*\(</Regex>
+		<Friendly>strlen family</Friendly>
+		<Description>This is a member of the strlen family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are strnlen_s, and the String*Length functions.</Description>
+	</Check>
+
+	<Check>
+		<Regex>(^|\W)_u?(i|l)?(64)?to(a|w|t)?\s*\(</Regex>
+		<Friendly>Numeric conversion family</Friendly>
+		<Description>This is a member of the numeric conversion family, which is "recommended banned" under the Microsoft SDL (see http://msdn.microsoft.com/en-us/library/bb288454.aspx). The secure alternatives are _itoa_s and _itow_s.</Description>
+	</Check>
+
+</Grepify>
