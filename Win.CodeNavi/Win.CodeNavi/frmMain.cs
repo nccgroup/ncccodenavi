@@ -451,11 +451,18 @@ namespace Win.CodeNavi
             {
                 MessageBox.Show("You need to specify a valid path", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } else  if (txtSearch.Text.Length == 0) // if the search term > 0
+            } 
+            else  if (txtSearch.Text.Length == 0) // if the search term > 0
             {
                 MessageBox.Show("You need to specify a valid search term", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else if (txtCodePath.Text.ToLower().Contains("test") && optIgnoreTest.Checked == true)
+            {
+                MessageBox.Show("Your patch contains test and you have the ignore directories and files with test option selected." + Environment.NewLine + "No results will be found, cancelling search!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             } 
+
             string[] strExts = txtExt.Text.Split (';'); // is the defined extensions list the correct format?
             foreach (string strExt in strExts)
             {
@@ -1152,6 +1159,12 @@ namespace Win.CodeNavi
             if (Directory.Exists(txtCodePath.Text) == false) // does the directory exist?
             {
                 MessageBox.Show("You need to specify a valid path", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtCodePath.Text.ToLower().Contains("test") && optIgnoreTest.Checked == true)
+            {
+                MessageBox.Show("Your patch contains test and you have the ignore directories and files with test option selected." + Environment.NewLine + "No results will be found, cancelling search!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
           

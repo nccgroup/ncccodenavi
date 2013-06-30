@@ -1,0 +1,32 @@
+http://social.msdn.microsoft.com/Forums/en-US/csharpgeneral/thread/df18cca9-5e54-410e-a5c5-74efc7b52e29
+
+byte[] _bytes = File.ReadAllBytes(file);
+List<char> cList = new List<char>();
+foreach (byte b in _bytes) cList.Add((char)b);
+string data = new string(cList.ToArray());
+
+Regex rx = new Regex(
+	@"[\x09\x0A\x0D\x20-\x7E]            # ASCII
+	| [\xC2-\xDF][\x80-\xBF]             # non-overlong 2-byte
+	|  \xE0[\xA0-\xBF][\x80-\xBF]        # excluding overlongs
+	| [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}  # straight 3-byte
+	|  \xED[\x80-\x9F][\x80-\xBF]        # excluding surrogates
+	|  \xF0[\x90-\xBF][\x80-\xBF]{2}     # planes 1-3
+	| [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
+	|  \xF4[\x80-\x8F][\x80-\xBF]{2}     # plane 16
+	", RegexOptions.IgnorePatternWhitespace | RegexOptions.Singleline);
+
+foreach (Match mx in rx.Matches(data))
+{
+	byte[] bb = new byte[mx.Value.Length];
+
+	Console.Write("Length: {0} ", mx.Value.Length);
+	Console.Write("Bytes: ");
+	for (int i = 0; i < mx.Value.Length; i++)
+	{
+		bb[i] = (byte)mx.Value[i];
+		Console.Write("{1}(0x{2:X}) ", i, bb[i], bb[i]);
+	}
+	Console.WriteLine("\tChar: [{1}]", mx.Value.Length, 
+		Encoding.UTF8.GetString(bb));
+}
