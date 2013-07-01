@@ -312,7 +312,7 @@ namespace Win.CodeNavi
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(this.Scintilla.Selection.Text != null) System.Windows.Forms.Clipboard.SetText(this.Scintilla.Selection.Text);
+            if(this.Scintilla.Selection.Text != null && this.Scintilla.Selection.Text != "") System.Windows.Forms.Clipboard.SetText(this.Scintilla.Selection.Text);
         }
 
         private void cmdSearch_Click(object sender, EventArgs e)
