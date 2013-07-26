@@ -71,6 +71,12 @@ namespace Win.CodeNavi
             // Populate series data
             int[] yValues = lstCounts.ToArray();
             string[] xValues = lstNames.ToArray();
+
+            for(int intCount=0;intCount < Convert.ToInt32(yValues.Count());intCount++)
+            {
+                xValues[intCount] = xValues[intCount] + " (" + yValues[intCount].ToString() + ")";
+            }
+
             this.chartMain.Series["Default"].Points.DataBindXY(xValues, yValues);
 
             // Set Doughnut chart type
@@ -79,7 +85,8 @@ namespace Win.CodeNavi
             // Set labels style
             this.chartMain.Series["Default"]["PieLabelStyle"] = "Outside";
 
-            this.chartMain.Series["Default"].IsValueShownAsLabel = true;
+            //this.chartMain.Series["Default"].IsValueShownAsLabel = true;
+            
 
             // Set Doughnut radius percentage
             this.chartMain.Series["Default"]["DoughnutRadius"] = "60";
@@ -120,6 +127,11 @@ namespace Win.CodeNavi
                     this.chartMain.Series["Default"].ChartType = scType;
                 }
             }           
+        }
+
+        private void chartMain_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

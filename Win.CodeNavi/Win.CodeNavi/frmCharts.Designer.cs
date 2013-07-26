@@ -88,6 +88,7 @@
             this.chartMain.Series.Add(series1);
             this.chartMain.Size = new System.Drawing.Size(484, 271);
             this.chartMain.TabIndex = 1;
+            this.chartMain.Click += new System.EventHandler(this.chartMain_Click);
             // 
             // frmCharts
             // 
