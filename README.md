@@ -21,17 +21,15 @@ https://github.com/nccgroup/ncccodenavi/blob/master/Win.CodeNavi/Win.CodeNavi/CH
 
 Binary Download
 ---------------
-Version 1.2 - 2nd May, 2013 (SHA1 SUM: 23987c36842e86cca75aa29741243a4c350fa6f1)
-* https://mega.co.nz/#!sosRwTiL!bp5Mi3KQVLTG_GZOLysHiicMErw7q_kds2DmXQbSIEg - mega.co.nz
-* http://www.fileswap.com/dl/idtyKxyFF/ - fileswap.com
+To get the binaries use the release tab above..
 
-Version 1.1 - 2nd May, 2013 (SHA1 SUM: c94d9181aecec0d9ef85d6fd40becb02b2c94e84)
-* https://mega.co.nz/#!M5kWzaCZ!Xygc4QBC4SdFQCJuMnFkYWm5PClxDAv5Vb8dyjA25lQ - mega.co.nz
-* http://www.fileswap.com/dl/velfaXFXE/ - fileswap.com
+Version 1.3.0.1 - 18th December, 2014 
 
-Version 1.0 - 20th April, 2013
-* https://mega.co.nz/#!YhEVCSwK!OKOt0yhETx3bsaP8SW7br1yIhKYPOFgK-kUBmHzdK84 - mega.co.nz
-* http://www.fileswap.com/dl/xxPzPixvMG/ - fileswap.com
+Version 1.2.0.0 - 2nd May, 2013 (SHA1 SUM: 23987c36842e86cca75aa29741243a4c350fa6f1)
+
+Version 1.1.0.0 - 2nd May, 2013 (SHA1 SUM: c94d9181aecec0d9ef85d6fd40becb02b2c94e84)
+
+Version 1.0.0.0 - 20th April, 2013
 
 Platforms
 ---------

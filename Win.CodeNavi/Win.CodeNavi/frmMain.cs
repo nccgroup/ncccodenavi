@@ -309,15 +309,15 @@ namespace Win.CodeNavi
                 richExclusions.LoadFile(AssemblyDirectory + "\\NCCCodeNavi.Exclusions\\NCCCodeNavi.exclusions");
             }
 
-            Twitter twTemp = new Twitter();
-            twTemp.SetRT(this.richNCCNews,this.tabNCCNews);
-            workerThread = new Thread(new ThreadStart(twTemp.Get));
+            //Twitter twTemp = new Twitter();
+            //twTemp.SetRT(this.richNCCNews,this.tabNCCNews);
+            //workerThread = new Thread(new ThreadStart(twTemp.Get));
 
             VersionCheck vCheck = new VersionCheck();
             workerThreadV = new Thread(new ThreadStart(vCheck.Get));
 
             // Start the worker thread.
-            workerThread.Start();
+            //workerThread.Start();
             workerThreadV.Start();
             
         }
@@ -895,9 +895,9 @@ namespace Win.CodeNavi
                 }
             }
 
-            if(workerThread.IsAlive){
-                workerThread.Abort();
-            }
+            //if(workerThread.IsAlive){
+            //    workerThread.Abort();
+            //}
             if (workerThreadV.IsAlive)
             {
                 workerThreadV.Abort();
@@ -1633,6 +1633,11 @@ namespace Win.CodeNavi
         }
 
         private void ctxTab_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void richNCCNews_TextChanged(object sender, EventArgs e)
         {
 
         }

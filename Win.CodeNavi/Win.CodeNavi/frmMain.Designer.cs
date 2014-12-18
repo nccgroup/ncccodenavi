@@ -90,6 +90,7 @@ namespace Win.CodeNavi
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabNCCNews = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.richNCCNews = new System.Windows.Forms.RichTextBox();
             this.tabExclusions = new System.Windows.Forms.TabPage();
             this.toolExcl = new System.Windows.Forms.ToolStrip();
@@ -144,7 +145,7 @@ namespace Win.CodeNavi
             this.toolTop.Location = new System.Drawing.Point(0, 0);
             this.toolTop.Name = "toolTop";
             this.toolTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolTop.Size = new System.Drawing.Size(1297, 39);
+            this.toolTop.Size = new System.Drawing.Size(1729, 39);
             this.toolTop.TabIndex = 0;
             this.toolTop.TabStop = true;
             this.toolTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolTop_KeyPress);
@@ -152,7 +153,7 @@ namespace Win.CodeNavi
             // lblPath
             // 
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(62, 36);
+            this.lblPath.Size = new System.Drawing.Size(77, 36);
             this.lblPath.Text = "Code Path";
             // 
             // txtCodePath
@@ -161,7 +162,7 @@ namespace Win.CodeNavi
             this.txtCodePath.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
             this.txtCodePath.AutoToolTip = true;
             this.txtCodePath.Name = "txtCodePath";
-            this.txtCodePath.Size = new System.Drawing.Size(250, 39);
+            this.txtCodePath.Size = new System.Drawing.Size(332, 39);
             this.txtCodePath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodePath_KeyPress);
             this.txtCodePath.TextChanged += new System.EventHandler(this.txtCodePath_TextChanged);
             // 
@@ -196,13 +197,13 @@ namespace Win.CodeNavi
             // lblSearchTerm
             // 
             this.lblSearchTerm.Name = "lblSearchTerm";
-            this.lblSearchTerm.Size = new System.Drawing.Size(42, 36);
+            this.lblSearchTerm.Size = new System.Drawing.Size(53, 36);
             this.lblSearchTerm.Text = "Search";
             // 
             // txtSearch
             // 
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(250, 39);
+            this.txtSearch.Size = new System.Drawing.Size(332, 39);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
@@ -225,13 +226,13 @@ namespace Win.CodeNavi
             // lblExts
             // 
             this.lblExts.Name = "lblExts";
-            this.lblExts.Size = new System.Drawing.Size(62, 36);
+            this.lblExts.Size = new System.Drawing.Size(78, 36);
             this.lblExts.Text = "Extensions";
             // 
             // txtExt
             // 
             this.txtExt.Name = "txtExt";
-            this.txtExt.Size = new System.Drawing.Size(200, 39);
+            this.txtExt.Size = new System.Drawing.Size(265, 39);
             this.txtExt.TextChanged += new System.EventHandler(this.txtExt_TextChanged);
             // 
             // cmdRemember
@@ -295,7 +296,7 @@ namespace Win.CodeNavi
             this.opRegexSearch.Checked = true;
             this.opRegexSearch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.opRegexSearch.Name = "opRegexSearch";
-            this.opRegexSearch.Size = new System.Drawing.Size(207, 22);
+            this.opRegexSearch.Size = new System.Drawing.Size(245, 24);
             this.opRegexSearch.Text = "&Regex Search";
             this.opRegexSearch.CheckedChanged += new System.EventHandler(this.opRegexSearch_CheckedChanged);
             this.opRegexSearch.Click += new System.EventHandler(this.opRegexSearch_Click);
@@ -305,7 +306,7 @@ namespace Win.CodeNavi
             this.opCaseSearch.Checked = true;
             this.opCaseSearch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.opCaseSearch.Name = "opCaseSearch";
-            this.opCaseSearch.Size = new System.Drawing.Size(207, 22);
+            this.opCaseSearch.Size = new System.Drawing.Size(245, 24);
             this.opCaseSearch.Text = "&Case Sensitive Search";
             this.opCaseSearch.Click += new System.EventHandler(this.opCaseSearch_Click);
             // 
@@ -314,7 +315,7 @@ namespace Win.CodeNavi
             this.cmdshowNotesPanel.Checked = true;
             this.cmdshowNotesPanel.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cmdshowNotesPanel.Name = "cmdshowNotesPanel";
-            this.cmdshowNotesPanel.Size = new System.Drawing.Size(207, 22);
+            this.cmdshowNotesPanel.Size = new System.Drawing.Size(245, 24);
             this.cmdshowNotesPanel.Text = "&Show Notes Panel";
             this.cmdshowNotesPanel.Click += new System.EventHandler(this.cmdshowNotesPanel_Click);
             // 
@@ -323,28 +324,28 @@ namespace Win.CodeNavi
             this.optIgnoreTest.Checked = true;
             this.optIgnoreTest.CheckState = System.Windows.Forms.CheckState.Checked;
             this.optIgnoreTest.Name = "optIgnoreTest";
-            this.optIgnoreTest.Size = new System.Drawing.Size(207, 22);
+            this.optIgnoreTest.Size = new System.Drawing.Size(245, 24);
             this.optIgnoreTest.Text = "&Ignore Test Files and Dirs";
             this.optIgnoreTest.Click += new System.EventHandler(this.optIgnoreTest_Click);
             // 
             // optIgnoreComments
             // 
             this.optIgnoreComments.Name = "optIgnoreComments";
-            this.optIgnoreComments.Size = new System.Drawing.Size(207, 22);
+            this.optIgnoreComments.Size = new System.Drawing.Size(245, 24);
             this.optIgnoreComments.Text = "Ignore &Hits in Comments";
             this.optIgnoreComments.Click += new System.EventHandler(this.optIgnoreComments_Click);
             // 
             // optAutoSaveNotes
             // 
             this.optAutoSaveNotes.Name = "optAutoSaveNotes";
-            this.optAutoSaveNotes.Size = new System.Drawing.Size(207, 22);
+            this.optAutoSaveNotes.Size = new System.Drawing.Size(245, 24);
             this.optAutoSaveNotes.Text = "&Auto Save Notes (5 Mins)";
             this.optAutoSaveNotes.Click += new System.EventHandler(this.optAutoSaveNotes_Click);
             // 
             // cmdMaxSearch
             // 
             this.cmdMaxSearch.Name = "cmdMaxSearch";
-            this.cmdMaxSearch.Size = new System.Drawing.Size(207, 22);
+            this.cmdMaxSearch.Size = new System.Drawing.Size(245, 24);
             this.cmdMaxSearch.Text = "&Maximum Search Results";
             this.cmdMaxSearch.Click += new System.EventHandler(this.cmdMaxSearch_Click);
             // 
@@ -398,7 +399,7 @@ namespace Win.CodeNavi
             // cmdWinTile
             // 
             this.cmdWinTile.Name = "cmdWinTile";
-            this.cmdWinTile.Size = new System.Drawing.Size(118, 22);
+            this.cmdWinTile.Size = new System.Drawing.Size(133, 24);
             this.cmdWinTile.Text = "&Tile";
             this.cmdWinTile.ToolTipText = "Tile windows";
             this.cmdWinTile.Click += new System.EventHandler(this.cmdWinTile_Click);
@@ -406,7 +407,7 @@ namespace Win.CodeNavi
             // cmdWinCascade
             // 
             this.cmdWinCascade.Name = "cmdWinCascade";
-            this.cmdWinCascade.Size = new System.Drawing.Size(118, 22);
+            this.cmdWinCascade.Size = new System.Drawing.Size(133, 24);
             this.cmdWinCascade.Text = "&Cascade";
             this.cmdWinCascade.ToolTipText = "Cascade windows";
             this.cmdWinCascade.Click += new System.EventHandler(this.cmdWinCascade_Click);
@@ -418,10 +419,11 @@ namespace Win.CodeNavi
             this.tabNotes.Controls.Add(this.tabNCCNews);
             this.tabNotes.Controls.Add(this.tabExclusions);
             this.tabNotes.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabNotes.Location = new System.Drawing.Point(863, 39);
+            this.tabNotes.Location = new System.Drawing.Point(1150, 39);
+            this.tabNotes.Margin = new System.Windows.Forms.Padding(4);
             this.tabNotes.Name = "tabNotes";
             this.tabNotes.SelectedIndex = 0;
-            this.tabNotes.Size = new System.Drawing.Size(434, 460);
+            this.tabNotes.Size = new System.Drawing.Size(579, 645);
             this.tabNotes.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabNotes.TabIndex = 3;
             // 
@@ -430,10 +432,11 @@ namespace Win.CodeNavi
             this.tabNotesPage.Controls.Add(this.statusStrip1);
             this.tabNotesPage.Controls.Add(this.toolStripNotesTab);
             this.tabNotesPage.Controls.Add(this.richNotes);
-            this.tabNotesPage.Location = new System.Drawing.Point(4, 25);
+            this.tabNotesPage.Location = new System.Drawing.Point(4, 28);
+            this.tabNotesPage.Margin = new System.Windows.Forms.Padding(4);
             this.tabNotesPage.Name = "tabNotesPage";
-            this.tabNotesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNotesPage.Size = new System.Drawing.Size(426, 431);
+            this.tabNotesPage.Padding = new System.Windows.Forms.Padding(4);
+            this.tabNotesPage.Size = new System.Drawing.Size(571, 613);
             this.tabNotesPage.TabIndex = 0;
             this.tabNotesPage.Text = "Notes";
             this.tabNotesPage.UseVisualStyleBackColor = true;
@@ -442,16 +445,17 @@ namespace Win.CodeNavi
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 406);
+            this.statusStrip1.Location = new System.Drawing.Point(4, 584);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(420, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(563, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(157, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(196, 20);
             this.toolStripStatusLabel1.Text = "Welcome to NCC Code Navi";
             // 
             // toolStripNotesTab
@@ -466,10 +470,10 @@ namespace Win.CodeNavi
             this.cmdWordWrap,
             this.cmdFormatText,
             this.cmdFontColour});
-            this.toolStripNotesTab.Location = new System.Drawing.Point(3, 3);
+            this.toolStripNotesTab.Location = new System.Drawing.Point(4, 4);
             this.toolStripNotesTab.Name = "toolStripNotesTab";
             this.toolStripNotesTab.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStripNotesTab.Size = new System.Drawing.Size(420, 39);
+            this.toolStripNotesTab.Size = new System.Drawing.Size(563, 39);
             this.toolStripNotesTab.TabIndex = 1;
             this.toolStripNotesTab.Text = "toolStrip1";
             // 
@@ -562,9 +566,10 @@ namespace Win.CodeNavi
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richNotes.ContextMenuStrip = this.ctxRichNotes;
             this.richNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richNotes.Location = new System.Drawing.Point(4, 45);
+            this.richNotes.Location = new System.Drawing.Point(5, 55);
+            this.richNotes.Margin = new System.Windows.Forms.Padding(4);
             this.richNotes.Name = "richNotes";
-            this.richNotes.Size = new System.Drawing.Size(416, 358);
+            this.richNotes.Size = new System.Drawing.Size(553, 449);
             this.richNotes.TabIndex = 0;
             this.richNotes.Text = "";
             this.richNotes.WordWrap = false;
@@ -577,20 +582,20 @@ namespace Win.CodeNavi
             this.copyToolStripMenuItem,
             this.openFileToolStripMenuItem});
             this.ctxRichNotes.Name = "ctxRichNotes";
-            this.ctxRichNotes.Size = new System.Drawing.Size(125, 48);
+            this.ctxRichNotes.Size = new System.Drawing.Size(142, 52);
             this.ctxRichNotes.Opening += new System.ComponentModel.CancelEventHandler(this.ctxRichNotes_Opening);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
             this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
             this.openFileToolStripMenuItem.Text = "&Open File";
             this.openFileToolStripMenuItem.Visible = false;
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
@@ -598,9 +603,10 @@ namespace Win.CodeNavi
             // tabNCCNews
             // 
             this.tabNCCNews.Controls.Add(this.groupBox1);
-            this.tabNCCNews.Location = new System.Drawing.Point(4, 25);
+            this.tabNCCNews.Location = new System.Drawing.Point(4, 28);
+            this.tabNCCNews.Margin = new System.Windows.Forms.Padding(4);
             this.tabNCCNews.Name = "tabNCCNews";
-            this.tabNCCNews.Size = new System.Drawing.Size(426, 431);
+            this.tabNCCNews.Size = new System.Drawing.Size(571, 613);
             this.tabNCCNews.TabIndex = 1;
             this.tabNCCNews.Text = "NCC Tweets";
             this.tabNCCNews.UseVisualStyleBackColor = true;
@@ -610,13 +616,28 @@ namespace Win.CodeNavi
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.webBrowser1);
             this.groupBox1.Controls.Add(this.richNCCNews);
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(4, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(415, 428);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(553, 606);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Twiiter (@NCCGroupInfosec)";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(9, 25);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(520, 574);
+            this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.Url = new System.Uri("https://twitter.com/nccgroupinfosec", System.UriKind.Absolute);
             // 
             // richNCCNews
             // 
@@ -625,13 +646,16 @@ namespace Win.CodeNavi
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richNCCNews.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richNCCNews.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richNCCNews.Location = new System.Drawing.Point(7, 20);
+            this.richNCCNews.Location = new System.Drawing.Point(9, 25);
+            this.richNCCNews.Margin = new System.Windows.Forms.Padding(4);
             this.richNCCNews.Name = "richNCCNews";
             this.richNCCNews.ReadOnly = true;
-            this.richNCCNews.Size = new System.Drawing.Size(391, 407);
+            this.richNCCNews.Size = new System.Drawing.Size(520, 579);
             this.richNCCNews.TabIndex = 0;
             this.richNCCNews.Text = "Loading...";
+            this.richNCCNews.Visible = false;
             this.richNCCNews.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richNCCNews_LinkClicked);
+            this.richNCCNews.TextChanged += new System.EventHandler(this.richNCCNews_TextChanged);
             // 
             // tabExclusions
             // 
@@ -639,9 +663,10 @@ namespace Win.CodeNavi
             this.tabExclusions.Controls.Add(this.statusStrip2);
             this.tabExclusions.Controls.Add(this.lblIntro);
             this.tabExclusions.Controls.Add(this.richExclusions);
-            this.tabExclusions.Location = new System.Drawing.Point(4, 25);
+            this.tabExclusions.Location = new System.Drawing.Point(4, 28);
+            this.tabExclusions.Margin = new System.Windows.Forms.Padding(4);
             this.tabExclusions.Name = "tabExclusions";
-            this.tabExclusions.Size = new System.Drawing.Size(426, 431);
+            this.tabExclusions.Size = new System.Drawing.Size(571, 613);
             this.tabExclusions.TabIndex = 2;
             this.tabExclusions.Text = "Search Exclusions";
             this.tabExclusions.UseVisualStyleBackColor = true;
@@ -654,7 +679,7 @@ namespace Win.CodeNavi
             this.toolExcl.Location = new System.Drawing.Point(0, 0);
             this.toolExcl.Name = "toolExcl";
             this.toolExcl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolExcl.Size = new System.Drawing.Size(426, 39);
+            this.toolExcl.Size = new System.Drawing.Size(571, 39);
             this.toolExcl.TabIndex = 4;
             this.toolExcl.Text = "toolStrip1";
             // 
@@ -666,31 +691,33 @@ namespace Win.CodeNavi
             this.cmdExlSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cmdExlSave.Name = "cmdExlSave";
             this.cmdExlSave.Size = new System.Drawing.Size(36, 36);
-            this.cmdExlSave.Text = "toolStripButton1";
+            this.cmdExlSave.Text = "Save Exclusions";
             this.cmdExlSave.Click += new System.EventHandler(this.cmdExlSave_Click);
             // 
             // statusStrip2
             // 
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblExRegexCompile});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 409);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 588);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(426, 22);
+            this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip2.Size = new System.Drawing.Size(571, 25);
             this.statusStrip2.TabIndex = 2;
             this.statusStrip2.Text = "statusStrip2";
             // 
             // lblExRegexCompile
             // 
             this.lblExRegexCompile.Name = "lblExRegexCompile";
-            this.lblExRegexCompile.Size = new System.Drawing.Size(23, 17);
+            this.lblExRegexCompile.Size = new System.Drawing.Size(29, 20);
             this.lblExRegexCompile.Text = "OK";
             // 
             // lblIntro
             // 
             this.lblIntro.AutoSize = true;
-            this.lblIntro.Location = new System.Drawing.Point(3, 55);
+            this.lblIntro.Location = new System.Drawing.Point(4, 68);
+            this.lblIntro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIntro.Name = "lblIntro";
-            this.lblIntro.Size = new System.Drawing.Size(344, 13);
+            this.lblIntro.Size = new System.Drawing.Size(466, 17);
             this.lblIntro.TabIndex = 1;
             this.lblIntro.Text = "Each line should be a regular expression for paths or filenames to ignore";
             // 
@@ -699,9 +726,10 @@ namespace Win.CodeNavi
             this.richExclusions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richExclusions.Location = new System.Drawing.Point(4, 71);
+            this.richExclusions.Location = new System.Drawing.Point(5, 87);
+            this.richExclusions.Margin = new System.Windows.Forms.Padding(4);
             this.richExclusions.Name = "richExclusions";
-            this.richExclusions.Size = new System.Drawing.Size(419, 335);
+            this.richExclusions.Size = new System.Drawing.Size(557, 411);
             this.richExclusions.TabIndex = 0;
             this.richExclusions.Text = "";
             this.richExclusions.TextChanged += new System.EventHandler(this.richExclusions_TextChanged);
@@ -711,10 +739,11 @@ namespace Win.CodeNavi
             this.tabForms.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabForms.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabForms.Location = new System.Drawing.Point(0, 39);
+            this.tabForms.Margin = new System.Windows.Forms.Padding(4);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
             this.tabForms.ShowToolTips = true;
-            this.tabForms.Size = new System.Drawing.Size(863, 26);
+            this.tabForms.Size = new System.Drawing.Size(1150, 32);
             this.tabForms.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabForms.TabIndex = 5;
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
@@ -727,13 +756,13 @@ namespace Win.CodeNavi
             this.ctxTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem});
             this.ctxTab.Name = "ctxTab";
-            this.ctxTab.Size = new System.Drawing.Size(153, 48);
+            this.ctxTab.Size = new System.Drawing.Size(115, 28);
             this.ctxTab.Opening += new System.ComponentModel.CancelEventHandler(this.ctxTab_Opening);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -745,17 +774,18 @@ namespace Win.CodeNavi
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1297, 499);
+            this.ClientSize = new System.Drawing.Size(1729, 684);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.tabNotes);
             this.Controls.Add(this.toolTop);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NCC Code Navi -";
@@ -855,6 +885,7 @@ namespace Win.CodeNavi
         private System.Windows.Forms.ToolStripMenuItem cmdMaxSearch;
         private System.Windows.Forms.ContextMenuStrip ctxTab;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 
