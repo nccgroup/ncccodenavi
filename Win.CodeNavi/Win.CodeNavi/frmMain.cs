@@ -464,12 +464,16 @@ namespace Win.CodeNavi
             } 
 
             string[] strExts = txtExt.Text.Split (';'); // is the defined extensions list the correct format?
-            foreach (string strExt in strExts)
+
+            if (!(strExts.Length == 1 && strExts[0] == "*"))
             {
-                if (strExt.StartsWith("*.") == false)
+                foreach (string strExt in strExts)
                 {
-                    MessageBox.Show(txtExt.Text + " is not in the correct format\nPlease use *.ext1;*.ext2\n", "Incorrect format", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (strExt.StartsWith("*.") == false)
+                    {
+                        MessageBox.Show(txtExt.Text + " is not in the correct format\nPlease use *.ext1;*.ext2\n", "Incorrect format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
 
