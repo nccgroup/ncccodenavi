@@ -209,19 +209,31 @@ namespace Win.CodeNavi
 
             try
             {
-                Console.WriteLine(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml");
-                if(File.Exists(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml")){
-                    this.Scintilla.ConfigurationManager.IsBuiltInEnabled = false;
-                    this.Scintilla.ConfigurationManager.CustomLocation = frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\";
-                    this.scintilla.ConfigurationManager.Language = "default";
-                    scintilla.Lexing.LexerLanguageMap[Path.GetExtension(strFilePath).Substring(1)] = "cpp"; // probably a bit too dirty in the long term
-                    this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
-                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                } else {
-                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
-                    if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c"))  this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                /* Checking if file has extension */
+                if (Path.GetExtension(strFilePath) != String.Empty)
+                {
+                    Console.WriteLine(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml");
+                    if (File.Exists(frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\" + Path.GetExtension(strFilePath).Substring(1) + ".xml"))
+                    {
+                        this.Scintilla.ConfigurationManager.IsBuiltInEnabled = false;
+                        this.Scintilla.ConfigurationManager.CustomLocation = frmMain.AssemblyDirectory + "\\NCCCodeNavi.CodeHighlighting\\";
+                        this.scintilla.ConfigurationManager.Language = "default";
+                        scintilla.Lexing.LexerLanguageMap[Path.GetExtension(strFilePath).Substring(1)] = "cpp"; // probably a bit too dirty in the long term
+                        this.Scintilla.ConfigurationManager.Language = Path.GetExtension(strFilePath).Substring(1);
+                        if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                        if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                    }
+                    else
+                    {
+                        if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("cs")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                        if (Path.GetExtension(strFilePath).Substring(1).ToLower().Equals("c")) this.Scintilla.Indentation.SmartIndentType = SmartIndent.CPP;
+                        this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
+                        this.Scintilla.ConfigurationManager.Configure();
+                    }
+                }
+                else {
                     this.Scintilla.ConfigurationManager.IsBuiltInEnabled = true;
+                    this.scintilla.ConfigurationManager.Language = "default";
                     this.Scintilla.ConfigurationManager.Configure();
                 }
                 
